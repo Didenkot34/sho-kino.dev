@@ -14,7 +14,7 @@ class CreateTrailersTable extends Migration
     {
         Schema::create('trailers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cinematograph_id');
+            $table->integer('cinematographs_id');
             $table->string('title');
             $table->string('slug');
             $table->text('description');
