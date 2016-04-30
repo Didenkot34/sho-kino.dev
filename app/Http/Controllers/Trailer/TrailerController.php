@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Trailer;
 
+use App\Country;
 use App\Genre;
 use Illuminate\Http\Request;
 
@@ -20,17 +21,21 @@ class TrailerController extends Controller
         ]);
     }
 
-    public function films(Trailer $trailer, Genre $genre, $genreSlug, $yearNumber)
+    public function films(Trailer $trailer, Genre $genre, Country $country ,$genreSlug, $yearNumber, $countrySlug)
     {
         $slug = explode('_', $genreSlug)[1];
         $year = explode('_', $yearNumber)[1];
+        $countrySl = explode('_', $countrySlug)[1];
         return view('trailer.films', [
-            'trailers' => $trailer->getTrailersByFilters($slug, $year),
+            'trailers' => $trailer->getTrailersByFilters($slug, $year, $countrySl),
             'genres' => $genre->get(),
             'nameOfGenre' => $slug !== 'all' ? $genre->getNameOfGenreBySlug($slug) : false,
+            'nameOfCountry' => $countrySl !== 'all' ? $country->getNameOfCountryBySlug($countrySl) : false,
             'selectedGenre' => $slug,
             'selectedYear' => $year,
-            'allTrailerYears' => $trailer->getAllTrailerYears()
+            'selectedCountry' => $countrySl,
+            'allTrailerYears' => $trailer->getAllTrailerYears(),
+            'countries' => $country->get()
         ]);
     }
 }

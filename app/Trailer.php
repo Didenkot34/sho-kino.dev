@@ -42,10 +42,10 @@ class Trailer extends Model
         return $this->orderBy('premiere_in_ukraine', 'desc')->published()->editorsChoice()->get();
     }
 
-    public function getTrailersByFilters($genre, $year)
+    public function getTrailersByFilters($genre, $year, $countrySl)
     {
 
-        $symbolGenre = $symbolYear = '<>';
+        $symbolGenre = $symbolYear = $symbolCountry = '<>';
         if ($genre !== 'all') {
             $symbolGenre = '=';
         }
@@ -53,10 +53,17 @@ class Trailer extends Model
         if ($year !== 'all') {
             $symbolYear = '=';
         }
-        return $this->select('trailers.*')->leftJoin('genre_trailer', 'trailers.id', '=', 'genre_trailer.trailer_id')
+        if ($countrySl !== 'all') {
+            $symbolCountry = '=';
+        }
+        return $this->select('trailers.*')
+            ->leftJoin('genre_trailer', 'trailers.id', '=', 'genre_trailer.trailer_id')
             ->leftJoin('genres', 'genres.id', '=', 'genre_trailer.genre_id')
+            ->leftJoin('country_trailer', 'trailers.id', '=', 'country_trailer.trailer_id')
+            ->leftJoin('countries', 'countries.id', '=', 'country_trailer.country_id')
             ->where('genres.slug', $symbolGenre, $genre)
             ->where('trailers.year', $symbolYear, $year)
+            ->where('countries.slug', $symbolCountry, $countrySl)
             ->groupBy('trailers.id')
             ->get();
     }

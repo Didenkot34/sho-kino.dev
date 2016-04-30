@@ -19,7 +19,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('view/{slug}', [
         'as' => 'trailer', 'uses' => 'Trailer\TrailerController@view'
     ]);
-    Route::get('films/{genreSlug}/{yearNumber}', [
+    Route::get('films/{genreSlug}/{yearNumber}/{countrySlug}', [
         'as' => 'filters', 'uses' => 'Trailer\TrailerController@films'
     ]);
     Route::get('actor/{slug}', [

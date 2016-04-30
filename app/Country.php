@@ -12,4 +12,8 @@ class Country extends Model
     {
         return $this->belongsToMany('App\Trailer');
     }
+    public function getNameOfCountryBySlug($slug)
+    {
+        return $this->where(['slug' => $slug])->pluck('name')[0];
+    }
 }
