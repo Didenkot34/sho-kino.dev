@@ -72,6 +72,7 @@ return array(
 		'trailers',
 		'actors',
 		'youtube',
+		'countries',
 	),
 
 	/**

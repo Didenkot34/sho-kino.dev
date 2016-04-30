@@ -22,6 +22,10 @@ class Trailer extends Model
     {
         return $this->belongsToMany('App\Actor');
     }
+    public function countries()
+    {
+        return $this->belongsToMany('App\Country');
+    }
 
     public function getActiveTrailers()
     {

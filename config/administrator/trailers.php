@@ -76,6 +76,11 @@ return [
             'type' => 'text',
             'title' => 'Country',
         ],
+        'countries' => [
+            'type' => 'relationship',
+            'title' => 'Countries',
+            'name_field' => 'name',
+        ],
         'premiere_in_ukraine' => [
             'type' => 'date',
             'title' => 'Premiere in Ukraine',
