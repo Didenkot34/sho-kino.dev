@@ -72,10 +72,6 @@ return [
             'type' => 'text',
             'title' => 'Age Limit',
         ],
-        'country' => [
-            'type' => 'text',
-            'title' => 'Country',
-        ],
         'countries' => [
             'type' => 'relationship',
             'title' => 'Countries',

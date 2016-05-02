@@ -40,7 +40,8 @@
                         <td><h4>Год: </h4></td>
                         <td>
                             <h4>
-                                <a href="{{route('filters', ['genre_all', 'year_' . $trailer->year,'country_all'])}}" class="premiere text-capitalize"> {{$trailer->year}}</a>
+                                <a href="{{route('filters', ['genre_all', 'year_' . $trailer->year,'country_all'])}}"
+                                   class="premiere text-capitalize"> {{$trailer->year}}</a>
                             </h4>
                         </td>
                     </tr>
@@ -48,7 +49,13 @@
                         <td><h4>Страна: </h4></td>
                         <td>
                             <h4>
-                                <a href="#" class="premiere text-capitalize"> {{$trailer->country}}</a>
+                                <?php $count = count($trailer->countries()->get())?>
+                                @foreach($trailer->countries()->get() as $countries )
+                                    <?php $count-- ?>
+                                    <a href="{{route('filters', ['genre_all','year_all','country_'.$countries->slug])}}"
+                                       class="premiere text-capitalize">{{$countries->name}}</a>@if($count)
+                                        , @endif
+                                @endforeach
                             </h4>
                         </td>
                     </tr>
@@ -61,20 +68,6 @@
                                     <?php $count-- ?>
                                     <a href="{{route('filters', ['genre_'.$genres->slug,'year_all','country_all'])}}"
                                        class="premiere text-capitalize">{{$genres->name}}</a>@if($count)
-                                        , @endif
-                                @endforeach
-                            </h4>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><h4>Страны: </h4></td>
-                        <td>
-                            <h4>
-                                <?php $count = count($trailer->countries()->get())?>
-                                @foreach($trailer->countries()->get() as $countries )
-                                    <?php $count-- ?>
-                                    <a href="{{route('filters', ['genre_all','year_all','country_'.$countries->slug])}}"
-                                       class="premiere text-capitalize">{{$countries->name}}</a>@if($count)
                                         , @endif
                                 @endforeach
                             </h4>
