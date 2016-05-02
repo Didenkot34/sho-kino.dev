@@ -73,6 +73,7 @@ return array(
 		'actors',
 		'youtube',
 		'countries',
+		'comments',
 	),
 
 	/**

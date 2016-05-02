@@ -13,6 +13,11 @@ class Trailer extends Model
         return $this->belongsTo('App\Cinematograph');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'trailer_id');
+    }
+
     public function genres()
     {
         return $this->belongsToMany('App\Genre');
