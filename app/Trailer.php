@@ -78,14 +78,20 @@ class Trailer extends Model
         return $this->distinct()->lists('year');
     }
 
+    public function getPremiersOfTrailers()
+    {
+        return \DB::select('select * from sho_kinopoisk_dev.trailers
+WHERE world_premiere >= current_date - interval 6 month ');
+    }
+
     public function scopeEditorsChoice($query)
     {
-        $query->where(['editors_choice' => true]);
+        return $query->where(['editors_choice' => true]);
     }
 
     public function scopePublished($query)
     {
-        $query->where(['active' => true]);
+        return $query->where(['active' => true]);
 
     }
 }
