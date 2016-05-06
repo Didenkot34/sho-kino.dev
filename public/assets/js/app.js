@@ -5,14 +5,9 @@ $(document).ready(function () {
     centerSlider();
     fadeSlider();
     slider4();
-    $('#trailer-description').tab();
+    tubs();
+    scrollToTop();
 
-    if ( ($(window).height() + 100) < $(document).height() ) {
-        $('#top-link-block').removeClass('hidden').affix({
-            // how far to scroll down before link "slides" into view
-            offset: {top:100}
-        });
-    }
 });
 
 function centerSlider() {
@@ -61,9 +56,26 @@ function fadeSlider() {
     });
 }
 
-    function slider4() {
-        if ($('.slider4') === null) {
-            return;
-        }
-        $('.slider4').slick();
+function slider4() {
+    if ($('.slider4') === null) {
+        return;
     }
+    $('.slider4').slick();
+}
+
+function tubs() {
+    var trailerDescriptionTabs = $('#trailer-description');
+    if ((trailerDescriptionTabs === null)) {
+        return;
+    }
+    trailerDescriptionTabs.tab();
+}
+
+function scrollToTop() {
+    if (($(window).height() + 100) < $(document).height()) {
+        $('#top-link-block').removeClass('hidden').affix({
+            // how far to scroll down before link "slides" into view
+            offset: {top: 100}
+        });
+    }
+}

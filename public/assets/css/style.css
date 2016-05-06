@@ -68,3 +68,7 @@ p {
     bottom: 18px; /* height of link element */
     right: 10px; /* padding from the left side of the window */
 }
+
+#top-link-block a {
+    color: #00C0B5;
+}
