@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Trailer;
 
+use App\Comment;
 use App\Country;
 use App\Genre;
 use Illuminate\Http\Request;
@@ -12,12 +13,13 @@ use App\Trailer;
 
 class TrailerController extends Controller
 {
-    public function view(Trailer $trailer, $slug)
+    public function view(Trailer $trailer, Comment $comment, $slug)
     {
         return view('trailer.view', [
             'trailer' => $trailer->getTrailerBySlug($slug),
             'activeTrailers' => $trailer->getActiveTrailers(),
-            'editorsChoice' => $trailer->getEditorsChoice()
+            'editorsChoice' => $trailer->getEditorsChoice(),
+            'comments' => $comment->get()
         ]);
     }
 

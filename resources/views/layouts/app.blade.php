@@ -86,7 +86,15 @@
         <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
     </a>
 </span><!-- /top-link-block -->
-
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Sho-kinopoisk {{date('Y-m-d')}}</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
     <!-- JavaScripts -->
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>--}}
     <script src="/assets/js/jquery-2.2.3.min.js"></script>

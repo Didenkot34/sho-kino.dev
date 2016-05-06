@@ -134,12 +134,13 @@
                             <div class="tab-pane" id="comments">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <ul>
-                                                @foreach($trailer->actors()->get() as $actor)
-                                                    <li>{{$actor->name}}</li>
+                                        <div class="col-md-12">
+                                            @include('trailer.commentsModal')
+                                                @foreach($comments as $comment)
+                                                    <blockquote>
+                                                        {!! $comment->comment !!}
+                                                    </blockquote>
                                                 @endforeach
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -192,18 +193,6 @@
     </div>
     <!-- /.row -->
     <hr>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Sho-kinopoisk {{date('Y-m-d')}}</p>
-            </div>
-        </div>
-        <!-- /.row -->
-    </footer>
-
 </div>
 <!-- /.container -->
-
 @endsection
