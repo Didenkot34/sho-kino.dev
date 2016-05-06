@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container premiere-jumbotron">
+    <div class="container box-shadow-jumbotron">
         <!-- Page Header -->
         <div class="row">
             <div class="col-md-5">
@@ -110,7 +110,7 @@
         <div class="row">
             @foreach($trailers as $trailer)
                 <div class="col-md-4 portfolio-item">
-                    <div class="premiere-jumbotron">
+                    <div class="box-shadow-jumbotron">
                         <h3>
                             <p data-toggle="modal" data-target="#trailer_id{{$trailer->id}}">{!!$trailer->title!!}</p>
                         </h3>

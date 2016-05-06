@@ -8,7 +8,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 premiere-jumbotron">
+                <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                     <h1 class="premiere">PREMIERE</h1>
 
                     <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
@@ -17,7 +17,7 @@
                         @include('trailer.premiere', ['trailers' => $trailers])
                     </div>
                 </div>
-                <div class="col-md-10 col-md-offset-1 premiere-jumbotron">
+                <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                     <h1 class="premiere">FILMS</h1>
 
                     <p class="lead">Новинки мирового кинопроката и блокбастеры</p>

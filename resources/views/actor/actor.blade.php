@@ -14,7 +14,7 @@
     <!-- /.row -->
 
     <!-- Biography-->
-    <div class="container premiere-jumbotron">
+    <div class="container box-shadow-jumbotron">
         <div class="row">
             <div class="col-md-12">
                 <div class="col-md-4">
@@ -71,7 +71,7 @@
     <!--END Biography-->
 
     <!-- Biography VIDEO From Youtube-->
-    <div class="container premiere-jumbotron">
+    <div class="container box-shadow-jumbotron">
         <!-- Page Header -->
         <div class="row">
             <div class="col-lg-12">
@@ -98,7 +98,7 @@
     </div>
     <!--END Biography VIDEO From Youtube-->
     <!-- Trailers with this actors-->
-    <div class="container premiere-jumbotron">
+    <div class="container box-shadow-jumbotron">
 
         <!-- Page Header -->
         <div class="row">
@@ -114,7 +114,7 @@
         <div class="row">
             @foreach($actor->trailers()->get() as $trailer)
                 <div class="col-md-4 portfolio-item">
-                    <div class="premiere-jumbotron">
+                    <div class="box-shadow-jumbotron">
                         <h3>
                             <p data-toggle="modal" data-target="#trailer_id{{$trailer->id}}">{!!$trailer->title!!}</p>
                         </h3>

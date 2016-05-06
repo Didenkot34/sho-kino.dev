@@ -15,11 +15,11 @@
 
     <!-- Portfolio Item Row -->
     <div class="row">
-        <div class="col-md-12  premiere-jumbotron">
+        <div class="col-md-12  box-shadow-jumbotron">
             @include('trailer.trailerInfo', ['trailer' => $trailer])
         </div>
 
-        <div class="col-md-12 premiere-jumbotron">
+        <div class="col-md-12 box-shadow-jumbotron">
             <h1 class="premiere">Что еще посмотреть?</h1>
 
             <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
@@ -28,7 +28,7 @@
                 @include('trailer.premiere', ['trailers' => $activeTrailers])
             </div>
         </div>
-        <div class="col-md-12 premiere-jumbotron">
+        <div class="col-md-12 box-shadow-jumbotron">
             <h1 class="premiere"> Выбор Редакции</h1>
 
             <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
