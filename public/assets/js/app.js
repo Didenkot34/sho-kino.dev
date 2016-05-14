@@ -103,7 +103,6 @@ function addComment() {
             data: comment,                     // тип загружаемых данных
             type: 'POST',
             success: function (data) { // вешаем свой обработчик на функцию success
-                console.log(data.comment);
                 $('input[name = "user_id"]').addClass('hidden');
                 $('textarea[name = "comment"]').addClass('hidden');
                 $('input[name = "trailer_id"]').addClass('hidden');
