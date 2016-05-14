@@ -96,7 +96,6 @@ function addComment() {
     commentForm.submit(function (e) {
 
         var comment = $(this).serialize();
-        console.log(comment.comment)
         $.ajax({
             url: '/add-comment',             // указываем URL и
             dataType: "json",                     // тип загружаемых данных
