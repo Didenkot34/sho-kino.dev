@@ -7,7 +7,8 @@ $(document).ready(function () {
     slider4();
     tubs();
     scrollToTop();
-
+    addComment();
+    resetComment();
 });
 
 function centerSlider() {
@@ -78,4 +79,54 @@ function scrollToTop() {
             offset: {top: 100}
         });
     }
+}
+
+function addComment() {
+    var commentForm = $('#form-comment');
+    var alert = $('.alert');
+    alert.hide();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    if (commentForm === null) {
+        return;
+    }
+    commentForm.submit(function (e) {
+
+        var comment = $(this).serialize();
+        console.log(comment.comment)
+        $.ajax({
+            url: '/add-comment',             // указываем URL и
+            dataType: "json",                     // тип загружаемых данных
+            data: comment,                     // тип загружаемых данных
+            type: 'POST',
+            success: function (data) { // вешаем свой обработчик на функцию success
+                console.log(data.comment);
+                $('input[name = "user_id"]').addClass('hidden');
+                $('textarea[name = "comment"]').addClass('hidden');
+                $('input[name = "trailer_id"]').addClass('hidden');
+                $('button[type = "submit"]').addClass('hidden');
+                $('#reset').removeClass('hidden');
+                alert.fadeIn("slow").fadeOut(5000);
+            }
+        });
+        e.preventDefault();
+    });
+}
+
+function resetComment() {
+    var resetButton = $("#reset");
+    var alert = $('.alert');
+    if (resetButton === null) {
+        return;
+    }
+    resetButton.click(function () {
+        $('input[name = "user_id"]').removeClass('hidden');
+        $('textarea[name = "comment"]').removeClass('hidden').val('');
+        $('input[name = "trailer_id"]').removeClass('hidden');
+        $('button[type = "submit"]').removeClass('hidden');
+        resetButton.addClass('hidden');
+    });
 }

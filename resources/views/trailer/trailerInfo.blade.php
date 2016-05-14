@@ -117,7 +117,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                @include('trailer.commentsModal')
+                                @include('trailer.commentsModal', ['trailerId' => $trailer->id])
                                 @foreach($comments as $comment)
                                     <blockquote>
                                         {!! $comment->comment !!}

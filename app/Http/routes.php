@@ -25,6 +25,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('actor/{slug}', [
         'as' => 'actor', 'uses' => 'Actor\ActorController@actor'
     ]);
+    Route::any('add-comment', [
+        'as' => 'addComment', 'uses' => 'Comment\CommentController@addComment'
+    ]);
 
 });
 
