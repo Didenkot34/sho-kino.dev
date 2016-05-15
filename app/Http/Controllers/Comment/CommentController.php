@@ -10,10 +10,18 @@ use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function addComment(Request $request, Comment $comment)
     {
-        $id = $comment->saveComment($request->except('_token'));
-        echo json_encode(['comment' => $request->input('comment')]);
-        exit;
+        if($request->ajax()) {
+            $id = $comment->saveComment($request->except('_token'));
+            return response()->json(['comment' => $request->input('comment')]);
+        }
+
+        return redirect()->guest('login');
     }
 }

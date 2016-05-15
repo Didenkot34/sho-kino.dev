@@ -99,7 +99,7 @@ function addComment() {
         $.ajax({
             url: '/add-comment',             // указываем URL и
             dataType: "json",                     // тип загружаемых данных
-            data: comment,                     // тип загружаемых данных
+            data: comment,
             type: 'POST',
             success: function (data) { // вешаем свой обработчик на функцию success
                 $('input[name = "user_id"]').addClass('hidden');

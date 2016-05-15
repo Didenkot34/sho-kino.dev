@@ -8,15 +8,17 @@ use App\Genre;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\MyController;
 use App\Trailer;
 
-class TrailerController extends Controller
+class TrailerController extends MyController
 {
     public function view(Trailer $trailer, Comment $comment, $slug)
     {
+        $trailerInfo = $this->myExeption($trailer->getTrailerBySlug($slug));
+
         return view('trailer.view', [
-            'trailer' => $trailer->getTrailerBySlug($slug),
+            'trailer' => $trailerInfo,
             'activeTrailers' => $trailer->getActiveTrailers(),
             'editorsChoice' => $trailer->getEditorsChoice(),
             'comments' => $comment->get()
@@ -29,7 +31,7 @@ class TrailerController extends Controller
         $year = explode('_', $yearNumber)[1];
         $countrySl = explode('_', $countrySlug)[1];
         return view('trailer.films', [
-            'trailers' => $trailer->getTrailersByFilters($slug, $year, $countrySl),
+            'trailers' => $this->myExeption($trailer->getTrailersByFilters($slug, $year, $countrySl)),
             'genres' => $genre->get(),
             'nameOfGenre' => $slug !== 'all' ? $genre->getNameOfGenreBySlug($slug) : false,
             'nameOfCountry' => $countrySl !== 'all' ? $country->getNameOfCountryBySlug($countrySl) : false,

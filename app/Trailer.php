@@ -27,6 +27,7 @@ class Trailer extends Model
     {
         return $this->belongsToMany('App\Actor');
     }
+
     public function countries()
     {
         return $this->belongsToMany('App\Country');
@@ -61,6 +62,12 @@ class Trailer extends Model
         if ($countrySl !== 'all') {
             $symbolCountry = '=';
         }
+        $checkGenre = \DB::table('genres')->where('genres.slug', $symbolGenre, $genre)->first();
+        $checkCountry = \DB::table('countries')->where('countries.slug', $symbolCountry, $countrySl)->first();
+
+        if ($checkGenre === null || $checkCountry === null) {
+            return null;
+        }
         return $this->select('trailers.*')
             ->leftJoin('genre_trailer', 'trailers.id', '=', 'genre_trailer.trailer_id')
             ->leftJoin('genres', 'genres.id', '=', 'genre_trailer.genre_id')
@@ -81,7 +88,7 @@ class Trailer extends Model
     public function getPremiersOfTrailers()
     {
         return \DB::select('select * from sho_kinopoisk_dev.trailers
-WHERE world_premiere >= current_date - interval 6 month ');
+                            WHERE world_premiere >= current_date - interval 6 month ');
     }
 
     public function scopeEditorsChoice($query)

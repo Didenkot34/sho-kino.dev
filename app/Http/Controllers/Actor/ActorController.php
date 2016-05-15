@@ -7,15 +7,15 @@ use App\Trailer;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\MyController;
 
-class ActorController extends Controller
+class ActorController extends MyController
 {
     public function actor(Actor $actor, $slug)
     {
         $trailer = new Trailer();
         return view('actor.actor',[
-            'actor' => $actor->getActorBySlug($slug),
+            'actor' => $this->myExeption($actor->getActorBySlug($slug)),
             'editorsChoice' => $trailer->getEditorsChoice()
         ]);
     }
