@@ -28,6 +28,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::any('add-comment', [
         'as' => 'addComment', 'uses' => 'Comment\CommentController@addComment'
     ]);
+    Route::any('signIn', [
+        'as' => 'signIn', 'uses' => 'Auth\AuthAjaxController@signIn'
+    ]);
+    Route::any('signUp', [
+        'as' => 'signUp', 'uses' => 'Auth\AuthAjaxController@signUp'
+    ]);
 
 });
 

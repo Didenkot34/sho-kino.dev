@@ -117,7 +117,8 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                @include('trailer.commentsModal', ['trailerId' => $trailer->id])
+                                {{--@include('trailer.commentsModal', ['trailerId' => $trailer->id])--}}
+                                @include('auth.signUp')
                                 @foreach($comments as $comment)
                                     <blockquote>
                                         {!! $comment->comment !!}

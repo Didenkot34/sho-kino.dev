@@ -9,6 +9,8 @@ $(document).ready(function () {
     scrollToTop();
     addComment();
     resetComment();
+    signIn();
+    signUp();
 });
 
 function centerSlider() {
@@ -126,5 +128,81 @@ function resetComment() {
         $('input[name = "trailer_id"]').removeClass('hidden');
         $('button[type = "submit"]').removeClass('hidden');
         resetButton.addClass('hidden');
+    });
+}
+function signIn() {
+    var signInForm = $('#form-signIn');
+    var errorEmail = $('#error-email');
+    var errorPassword = $('#error-password');
+    var errorSignIn= $('#error-signIn');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    if (signInForm === null) {
+        return;
+    }
+    signInForm.submit(function (e) {
+
+        var user = $(this).serialize();
+        $.ajax({
+            url: '/signIn',             // указываем URL и
+            dataType: "json",                     // тип загружаемых данных
+            data: user,
+            type: 'POST',
+            success: function (data) { // вешаем свой обработчик на функцию success
+                if(data.errors) {
+                    errorEmail.text(data.messages.email);
+                    errorPassword.text(data.messages.password);
+                    errorSignIn.text(data.messages.signIn);
+                } else {
+                    errorEmail.hide();
+                    errorPassword.hide();
+                    errorSignIn.hide();
+                }
+            }
+        });
+        e.preventDefault();
+    });
+}
+
+function signUp() {
+    var signUpForm = $('#form-signUp');
+    var errorEmail = $('#error-email');
+    var errorPassword = $('#error-password');
+    var errorSignUp= $('#error-signUn');
+    var errorName= $('#error-name');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    if (signUpForm === null) {
+        return;
+    }
+    signUpForm.submit(function (e) {
+
+        var user = $(this).serialize();
+        $.ajax({
+            url: '/signUp',             // указываем URL и
+            dataType: "json",                     // тип загружаемых данных
+            data: user,
+            type: 'POST',
+            success: function (data) { // вешаем свой обработчик на функцию success
+                if(data.errors) {
+                    errorName.text(data.messages.name);
+                    errorEmail.text(data.messages.email);
+                    errorPassword.text(data.messages.password);
+                    errorSignUp.text(data.messages.signUp);
+                } else {
+                    errorName.hide();
+                    errorEmail.hide();
+                    errorPassword.hide();
+                    errorSignUp.hide();
+                }
+            }
+        });
+        e.preventDefault();
     });
 }
