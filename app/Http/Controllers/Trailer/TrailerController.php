@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Trailer;
 use App\Comment;
 use App\Country;
 use App\Genre;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\MyController;
 use App\Trailer;
