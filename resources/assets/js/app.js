@@ -11,6 +11,8 @@ $(document).ready(function () {
     resetComment();
     signIn();
     signUp();
+    showSignInBox();
+    showSignUpBox();
 });
 
 function centerSlider() {
@@ -205,4 +207,31 @@ function signUp() {
         });
         e.preventDefault();
     });
+}
+
+function showSignInBox() {
+    var signinlink = $('#signinlink');
+
+    if (signinlink === null) {
+        return;
+    }
+    signinlink.on('click', function (e) {
+        e.preventDefault();
+        $('#signupbox').hide();
+        $('#signinbox').show();
+    })
+
+}
+function showSignUpBox() {
+    var signuplink = $('#signuplink');
+
+    if (signuplink === null) {
+        return;
+    }
+    signuplink.on('click', function (e) {
+        e.preventDefault();
+        $('#signinbox').hide(); 
+        $('#signupbox').show();
+    })
+
 }

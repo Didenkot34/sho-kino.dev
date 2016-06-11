@@ -10,7 +10,8 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                     <h1 class="premiere">PREMIERE</h1>
-
+                    <button class="btn btn-info" data-toggle="modal" data-target="#signUp" type="button">Post New Message</button>
+                    @include('auth.popup.authorization')
                     <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
 
                     <div class="center-slider">

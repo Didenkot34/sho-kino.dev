@@ -1,58 +1,56 @@
-<button data-toggle="modal" data-target="#signIn" class="button btn btn-info">Оставить комментарий</button>
-
-<!-- Modal -->
-<div id="signIn" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <form id="form-signIn" class="form-horizontal" role="form" method="POST" action="{{ url('/signIn') }}">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title text-center">Sign In </h4>
-                </div>
-                <div class="modal-body">
-                    {!! csrf_field() !!}
-                    <span class="help-block">
-                                    <strong id="error-signIn"> </strong>
-                                </span>
-
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">E-Mail Address</label>
-
-                        <div class="col-md-6">
-                            <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-                                <span class="help-block">
-                                    <strong id="error-email"> </strong>
-                                </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Password</label>
-
-                        <div class="col-md-6">
-                            <input type="password" class="form-control" name="password">
-                                <span class="help-block">
-                                    <strong id="error-password"> </strong>
-                                </span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember"> Remember Me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-info"><i class="fa fa-btn fa-user"></i> Войти</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+<div id="signinbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="panel-title">Sign In</div>
+            <div id="forgot-password"><a href="#">Forgot password?</a>
             </div>
-        </form>
+        </div>
+
+        <div class="panel-body">
+
+            <div id="signin-alert" class="alert alert-danger col-sm-12"></div>
+
+            <form id="loginform" class="form-horizontal" role="form">
+
+                <div class="input-group margin-bottom-25px">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="login-username" type="text" class="form-control" name="username" value=""
+                           placeholder="username or email">
+                </div>
+
+                <div class="input-group margin-bottom-25px">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="login-password" type="password" class="form-control" name="password"
+                           placeholder="password">
+                </div>
+
+                <div class="input-group">
+                    <div class="checkbox">
+                        <label>
+                            <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group margin-top-10px">
+                    <!-- Button -->
+                    <div class="col-sm-12 controls">
+                        <a id="btn-login" href="#" class="btn btn-success">Login </a>
+                        <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12 control">
+                        <div>
+                            Don't have an account!
+                            <a id="signuplink" href="#">
+                                Sign Up Here
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
