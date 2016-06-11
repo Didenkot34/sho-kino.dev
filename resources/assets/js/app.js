@@ -185,11 +185,11 @@ function signUp() {
 
         var user = $(this).serialize();
         $.ajax({
-            url: '/signUp',             // указываем URL и
-            dataType: "json",                     // тип загружаемых данных
+            url: '/signUp',            
+            dataType: "json",                    
             data: user,
             type: 'POST',
-            success: function (data) { // вешаем свой обработчик на функцию success
+            success: function (data) { 
                 if(data.errors) {
                     errorName.text(data.messages.name);
                     errorEmail.text(data.messages.email);

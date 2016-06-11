@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use MatthiasMullie\Minify\JS;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$path = __DIR__ . '/../resources/assets/js/';
+$pathMin = __DIR__ . '/../public/assets/js/';
+
+$minifier = new JS();
+$minifier->add($path . 'app.js');
+$minifier->minify($pathMin . 'app.min.js');
+
+echo 'Success: ' . realpath($path . 'app.js') . ' => ' . realpath($pathMin . 'app.min.js') . PHP_EOL;

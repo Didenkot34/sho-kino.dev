@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+use MatthiasMullie\Minify\CSS;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$path = __DIR__ . '/../resources/assets/css/';
+$pathMin = __DIR__ . '/../public/assets/css/';
+
+$minifier = new CSS();
+$minifier->add($path . 'style.css');
+$minifier->minify($pathMin . 'style.min.css');
+
+echo 'Success: ' . realpath($path . 'style.css') . ' => ' . realpath($pathMin . 'style.min.css') . PHP_EOL;
