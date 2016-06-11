@@ -156,7 +156,7 @@ div > #signuplink {
     transition: all 0.5s ease-in-out;
 }
 .scroll-top-wrapper:hover {
-    background-color: #00A6C7;
+    background-color: #00C0B5;
 }
 .scroll-top-wrapper.show {
     visibility:visible;
