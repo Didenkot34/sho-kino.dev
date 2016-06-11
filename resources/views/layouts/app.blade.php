@@ -83,11 +83,12 @@
 </nav>
 
 @yield('content')
-<span id="top-link-block" class="hidden">
-    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-        <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
-    </a>
-</span><!-- /top-link-block -->
+
+<div class="scroll-top-wrapper ">
+  <span class="scroll-top-inner">
+    <i class="fa fa-2x fa-arrow-circle-up"></i>
+  </span>
+</div>
 <!-- Footer -->
 <footer class="footer">
     <div class="row">
