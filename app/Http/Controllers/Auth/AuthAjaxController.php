@@ -58,7 +58,10 @@ class AuthAjaxController extends MyController
             ]);
 
         }
-        return response()->json(['errors' => false]);
+        return response()->json([
+            'errors' => false,
+            'messages' => ['success' => Auth::user()->name .', Вы успешно зарегестрировались.']
+        ]);
 
     }
 

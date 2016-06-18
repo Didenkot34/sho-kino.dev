@@ -8,19 +8,22 @@
 
         <div class="panel-body">
 
-            <div id="signin-alert" class="alert alert-danger col-sm-12"></div>
+            <div id="error-signIn" class="alert alert-danger col-sm-12"></div>
+            <div id="error-email" class="alert alert-danger"> </div>
+            <div id="error-password" class="alert alert-danger"> </div>
+            <div id="success-signin" class="alert alert-success "> </div>
 
-            <form id="loginform" class="form-horizontal" role="form">
-
+            <form id="signinform" class="form-horizontal" role="form">
+                {!! csrf_field() !!}
                 <div class="input-group margin-bottom-25px">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="login-username" type="text" class="form-control" name="username" value=""
-                           placeholder="username or email">
+                    <input id="signin-email" type="text" class="form-control" name="email" value=""
+                           placeholder="email">
                 </div>
 
                 <div class="input-group margin-bottom-25px">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="login-password" type="password" class="form-control" name="password"
+                    <input id="signin-password" type="password" class="form-control" name="password"
                            placeholder="password">
                 </div>
 
@@ -35,7 +38,7 @@
                 <div class="form-group margin-top-10px">
                     <!-- Button -->
                     <div class="col-sm-12 controls">
-                        <a id="btn-login" href="#" class="btn btn-success">Login </a>
+                        <button id="btn-login" class="btn btn-success" type="submit">Login </button>
                         <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
                     </div>
                 </div>

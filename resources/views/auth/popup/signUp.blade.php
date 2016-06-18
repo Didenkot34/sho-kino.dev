@@ -9,7 +9,7 @@
         </div>
         <div class="panel-body">
             <form id="signupform" class="form-horizontal" role="form" method="post">
-
+                {!! csrf_field() !!}
                 <div id="signupalert" class="alert alert-danger">
                     <p>Error:</p>
                     <span></span>

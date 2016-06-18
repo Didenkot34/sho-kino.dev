@@ -144,7 +144,8 @@ function resetComment() {
     });
 }
 function signIn() {
-    var signInForm = $('#form-signIn');
+    var signInForm = $('#signinform');
+    var successSignin= $('#success-signin');
     var errorEmail = $('#error-email');
     var errorPassword = $('#error-password');
     var errorSignIn= $('#error-signIn');
@@ -166,13 +167,32 @@ function signIn() {
             type: 'POST',
             success: function (data) { // вешаем свой обработчик на функцию success
                 if(data.errors) {
-                    errorEmail.text(data.messages.email);
-                    errorPassword.text(data.messages.password);
-                    errorSignIn.text(data.messages.signIn);
+                    if (data.messages.email) {
+                        errorEmail.text(data.messages.email);
+                        errorEmail.css( "display", "" );  
+                    } else {
+                        errorEmail.css( "display", "none" );
+                    }
+                    if (data.messages.password) {
+                        errorPassword.text(data.messages.password);
+                        errorPassword.css( "display", "" );
+                    } else {
+                        errorPassword.css( "display", "none" );
+                    }
+                    if (data.messages.signIn) {
+                        errorSignIn.text(data.messages.signIn);
+                        errorSignIn.css( "display", "" ); 
+                    } else {
+                        errorSignIn.css( "display", "none" );
+                    }
+                    
                 } else {
                     errorEmail.hide();
                     errorPassword.hide();
                     errorSignIn.hide();
+                    successSignin.text(data.messages.success);
+                    successSignin.css( "display", "" );
+
                 }
             }
         });
@@ -181,7 +201,7 @@ function signIn() {
 }
 
 function signUp() {
-    var signUpForm = $('#form-signUp');
+    var signUpForm = $('#signupform');
     var errorEmail = $('#error-email');
     var errorPassword = $('#error-password');
     var errorSignUp= $('#error-signUn');
