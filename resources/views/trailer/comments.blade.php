@@ -21,14 +21,27 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            {{--@include('trailer.commentsModal', ['trailerId' => $trailer->id])--}}
-            @if (Auth::guest()) @include('auth.popup.authorization') @endif
-            @foreach($comments as $comment)
-                <blockquote>
-                    {!! $comment->comment !!}
+        @if (Auth::guest()) @include('auth.popup.authorization') @endif
+        @foreach($comments as $comment)
+            <div class="col-md-12">
+                <blockquote class="quote-box">
+                    <p class="quotation-mark">
+                        “
+                    </p>
+                    <p class="quote-text">
+                        {!! $comment->comment !!}
+                    </p>
+                    <hr>
+                    <div class="blog-post-actions">
+                        <p class="blog-post-bottom pull-left">
+                            Abraham Lincoln
+                        </p>
+                        {{--<p class="blog-post-bottom pull-right">--}}
+                        {{--<span class="badge quote-badge">896</span> <i class="fa fa-heart-o"></i>--}}
+                        {{--</p>--}}
+                    </div>
                 </blockquote>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 </div>
