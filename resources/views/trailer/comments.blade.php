@@ -7,10 +7,8 @@
                 <form id="form-comment" accept-charset="UTF-8" action="" method="POST" class="form-group">
                     {!! csrf_field() !!}
                     <input type="hidden" name="trailer_id" value="{{$trailerId}}">
-                                        <textarea class="span4" id="comment" name="comment"
-                                                  placeholder="Type in your message" rows="5">
-                                        </textarea>
-                    <h6 class="pull-right">320 characters remaining</h6>
+                    <textarea id="comment" name="comment" autofocus rows="5" wrap="soft" maxlength="520"></textarea>
+                    <h6 class="pull-right">520 characters remaining</h6>
                     <button class="btn btn-info"
                             @if (Auth::guest())
                             data-toggle="modal" data-target="#signUp" type="button"

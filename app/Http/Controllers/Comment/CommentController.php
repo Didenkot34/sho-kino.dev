@@ -20,8 +20,11 @@ class CommentController extends Controller
     public function addComment(Request $request, Comment $comment)
     {
         if($request->ajax()) {
-            $validator = $this->validator($request->all(), ['comment' => 'required'], 
-                ['required' => 'Поле :attribute должно быть заполнено.']);
+            $validator = $this->validator($request->all(), ['comment' => 'required|max:520'], 
+                [
+                    'required' => 'Напишите хоть что-то;)',
+                    'max' => 'Вы привысили допустимый обьем символов - :max.'
+                ]);
 
             if ($validator->fails()) {
                 return response()->json([
