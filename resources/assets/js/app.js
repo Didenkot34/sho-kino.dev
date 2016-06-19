@@ -202,10 +202,11 @@ function signIn() {
 
 function signUp() {
     var signUpForm = $('#signupform');
-    var errorEmail = $('#error-email');
-    var errorPassword = $('#error-password');
+    var errorEmail = $('#error-email-signup');
+    var errorPassword = $('#error-password-signup');
     var errorSignUp= $('#error-signUn');
-    var errorName= $('#error-name');
+    var errorName= $('#error-name-signup');
+    var successSignup= $('#success-signup');
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -224,6 +225,25 @@ function signUp() {
             type: 'POST',
             success: function (data) { 
                 if(data.errors) {
+                    if (data.messages.email) {
+                        errorEmail.text(data.messages.email);
+                        errorEmail.css( "display", "" );
+                    } else {
+                        errorEmail.css( "display", "none" );
+                    }
+                    if (data.messages.name) {
+                        errorName.text(data.messages.name);
+                        errorName.css( "display", "" );
+                    } else {
+                        errorName.css( "display", "none" );
+                    }
+                    if (data.messages.password) {
+                        errorPassword.text(data.messages.password);
+                        errorPassword.css( "display", "" );
+                    } else {
+                        errorPassword.css( "display", "none" );
+                    }
+                    
                     errorName.text(data.messages.name);
                     errorEmail.text(data.messages.email);
                     errorPassword.text(data.messages.password);
@@ -233,6 +253,8 @@ function signUp() {
                     errorEmail.hide();
                     errorPassword.hide();
                     errorSignUp.hide();
+                    successSignup.text(data.messages.success);
+                    successSignup.css( "display", "" );
                 }
             }
         });

@@ -13,7 +13,7 @@
             <div id="error-password" class="alert alert-danger"> </div>
             <div id="success-signin" class="alert alert-success "> </div>
 
-            <form id="signinform" class="form-horizontal" role="form">
+            <form id="signinform" class="form-horizontal" role="form" method="post" action="/signIn">
                 {!! csrf_field() !!}
                 <div class="input-group margin-bottom-25px">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>

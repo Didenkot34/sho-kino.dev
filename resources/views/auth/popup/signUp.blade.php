@@ -8,12 +8,13 @@
             </div>
         </div>
         <div class="panel-body">
-            <form id="signupform" class="form-horizontal" role="form" method="post">
+            <form id="signupform" class="form-horizontal" action="/signUp" role="form" method="post">
                 {!! csrf_field() !!}
-                <div id="signupalert" class="alert alert-danger">
-                    <p>Error:</p>
-                    <span></span>
-                </div>
+                <div id="error-signup" class="alert alert-danger"></div>
+                <div id="error-email-signup" class="alert alert-danger"> </div>
+                <div id="error-password-signup" class="alert alert-danger"> </div>
+                <div id="error-name-signup" class="alert alert-danger "> </div>
+                <div id="success-signup" class="alert alert-success "> </div>
 
                 <div class="form-group">
                     <label for="email" class="col-md-3 control-label">Email</label>
@@ -23,30 +24,30 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="firstname" class="col-md-3 control-label">Name</label>
+                    <label for="name" class="col-md-3 control-label">Name</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="firstname" placeholder="Name">
+                        <input type="text" class="form-control" name="name" placeholder="Name">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="password" class="col-md-3 control-label">Password</label>
                     <div class="col-md-9">
-                        <input type="password" class="form-control" name="passwd" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="confirm_password" class="col-md-3 control-label">Confirm Password</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" name="confirm_password" placeholder="">
+                        <input type="password" class="form-control" name="password_confirmation" placeholder="">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <!-- Button -->
                     <div class="col-md-offset-3 col-md-9">
-                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp
+                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp
                             Sign Up
                         </button>
                         <span class="margin-left-8px"> </span>

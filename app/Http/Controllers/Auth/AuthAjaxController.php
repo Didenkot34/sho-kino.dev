@@ -60,7 +60,7 @@ class AuthAjaxController extends MyController
         }
         return response()->json([
             'errors' => false,
-            'messages' => ['success' => Auth::user()->name .', Вы успешно зарегестрировались.']
+            'messages' => ['success' => 'С возвращением, ' . Auth::user()->name . '!' ]
         ]);
 
     }
@@ -88,7 +88,7 @@ class AuthAjaxController extends MyController
             ]);
             return response()->json([
                 'errors' => false,
-                'userName' => $user->name
+                'messages' => ['success' => $user->name .', Вы успешно зарегестрировались.']
             ]);
         }
     }
