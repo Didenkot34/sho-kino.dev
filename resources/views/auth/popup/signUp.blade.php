@@ -10,11 +10,11 @@
         <div class="panel-body">
             <form id="signupform" class="form-horizontal" action="/signUp" role="form" method="post">
                 {!! csrf_field() !!}
-                <div id="error-signup" class="alert alert-danger"></div>
-                <div id="error-email-signup" class="alert alert-danger"> </div>
-                <div id="error-password-signup" class="alert alert-danger"> </div>
-                <div id="error-name-signup" class="alert alert-danger "> </div>
-                <div id="success-signup" class="alert alert-success "> </div>
+                <div id="error-signup" class="alert alert-danger hidden"></div>
+                <div id="error-email-signup" class="alert alert-danger hidden"> </div>
+                <div id="error-password-signup" class="alert alert-danger hidden"> </div>
+                <div id="error-name-signup" class="alert alert-danger  hidden"> </div>
+                <div id="success-signup" class="alert alert-success  hidden"> </div>
 
                 <div class="form-group">
                     <label for="email" class="col-md-3 control-label">Email</label>

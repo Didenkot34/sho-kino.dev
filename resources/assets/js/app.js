@@ -109,25 +109,24 @@ function addComment() {
     commentForm.submit(function (e) {
 
         var comment = $(this).serialize();
-        var successComment= $('#success-comment');
+        var successComment = $('#success-comment');
         var errorComment = $('#error-comment');
         $.ajax({
-            url: '/add-comment',             // указываем URL и
-            dataType: "json",                     // тип загружаемых данных
+            url: '/add-comment',      
+            dataType: "json",                     
             data: comment,
             type: 'POST',
-            success: function (data) { // вешаем свой обработчик на функцию success
-                console.log(data);
+            success: function (data) { 
                 if (data.messages.comment) {
                     errorComment.text(data.messages.comment);
-                    errorComment.css( "display", "" );
+                    errorComment.removeClass('hidden');
                 } else {
-                    errorComment.css( "display", "none" );
+                    errorComment.addClass('hidden');
                 }
 
                if (data.messages.success) {
                    successComment.text(data.messages.success);
-                   successComment.css( "display", "" );
+                   successComment.removeClass('hidden').fadeIn("slow").fadeOut(15000);
                }
                 // $('button[type = "submit"]').addClass('hidden');
                 // $('#reset').removeClass('hidden');
@@ -178,21 +177,21 @@ function signIn() {
                 if(data.errors) {
                     if (data.messages.email) {
                         errorEmail.text(data.messages.email);
-                        errorEmail.css( "display", "" );  
+                        errorEmail.removeClass('hidden');  
                     } else {
-                        errorEmail.css( "display", "none" );
+                        errorEmail.addClass('hidden');
                     }
                     if (data.messages.password) {
                         errorPassword.text(data.messages.password);
-                        errorPassword.css( "display", "" );
+                        errorPassword.removeClass('hidden');
                     } else {
-                        errorPassword.css( "display", "none" );
+                        errorPassword.addClass('hidden');
                     }
                     if (data.messages.signIn) {
                         errorSignIn.text(data.messages.signIn);
-                        errorSignIn.css( "display", "" ); 
+                        errorSignIn.removeClass('hidden');
                     } else {
-                        errorSignIn.css( "display", "none" );
+                        errorSignIn.addClass('hidden');;
                     }
                     
                 } else {
@@ -200,7 +199,7 @@ function signIn() {
                     errorPassword.hide();
                     errorSignIn.hide();
                     successSignin.text(data.messages.success);
-                    successSignin.css( "display", "" );
+                    successSignin.removeClass('hidden');
 
                 }
             }
@@ -236,21 +235,21 @@ function signUp() {
                 if(data.errors) {
                     if (data.messages.email) {
                         errorEmail.text(data.messages.email);
-                        errorEmail.css( "display", "" );
+                        errorEmail.removeClass('hidden');
                     } else {
-                        errorEmail.css( "display", "none" );
+                        errorEmail.addClass('hidden');
                     }
                     if (data.messages.name) {
                         errorName.text(data.messages.name);
-                        errorName.css( "display", "" );
+                        errorName.removeClass('hidden');
                     } else {
-                        errorName.css( "display", "none" );
+                        errorName.addClass('hidden');
                     }
                     if (data.messages.password) {
                         errorPassword.text(data.messages.password);
-                        errorPassword.css( "display", "" );
+                        errorPassword.removeClass('hidden');
                     } else {
-                        errorPassword.css( "display", "none" );
+                        errorPassword.addClass('hidden');
                     }
                     
                     errorName.text(data.messages.name);
@@ -263,7 +262,7 @@ function signUp() {
                     errorPassword.hide();
                     errorSignUp.hide();
                     successSignup.text(data.messages.success);
-                    successSignup.css( "display", "" );
+                    successSignup.removeClass('hidden');
                 }
             }
         });

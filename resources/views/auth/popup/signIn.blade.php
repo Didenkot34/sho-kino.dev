@@ -8,10 +8,10 @@
 
         <div class="panel-body">
 
-            <div id="error-signIn" class="alert alert-danger col-sm-12"></div>
-            <div id="error-email" class="alert alert-danger"> </div>
-            <div id="error-password" class="alert alert-danger"> </div>
-            <div id="success-signin" class="alert alert-success "> </div>
+            <div id="error-signIn" class="alert alert-danger col-sm-12  hidden"></div>
+            <div id="error-email" class="alert alert-danger hidden"> </div>
+            <div id="error-password" class="alert alert-danger hidden"> </div>
+            <div id="success-signin" class="alert alert-success  hidden"> </div>
 
             <form id="signinform" class="form-horizontal" role="form" method="post" action="/signIn">
                 {!! csrf_field() !!}
