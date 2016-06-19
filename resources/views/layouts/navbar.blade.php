@@ -1,50 +1,50 @@
 {{--<nav class="navbar navbar-default navbar-static-top" id="top">--}}
-    {{--<div class="container">--}}
-        {{--<div class="navbar-header">--}}
+{{--<div class="container">--}}
+{{--<div class="navbar-header">--}}
 
-            {{--<!-- Collapsed Hamburger -->--}}
-            {{--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"--}}
-                    {{--data-target="#app-navbar-collapse">--}}
-                {{--<span class="sr-only">Toggle Navigation</span>--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-            {{--</button>--}}
+{{--<!-- Collapsed Hamburger -->--}}
+{{--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"--}}
+{{--data-target="#app-navbar-collapse">--}}
+{{--<span class="sr-only">Toggle Navigation</span>--}}
+{{--<span class="icon-bar"></span>--}}
+{{--<span class="icon-bar"></span>--}}
+{{--<span class="icon-bar"></span>--}}
+{{--</button>--}}
 
-            {{--<!-- Branding Image -->--}}
-            {{--<a class="navbar-brand " href="{{ url('/') }}">--}}
-                {{--<i class="fa fa-video-camera premiere" aria-hidden="true"></i>--}}
-                {{--<span class="premiere text-uppercase">sho-kinopoisk</span>--}}
-            {{--</a>--}}
-        {{--</div>--}}
+{{--<!-- Branding Image -->--}}
+{{--<a class="navbar-brand " href="{{ url('/') }}">--}}
+{{--<i class="fa fa-video-camera premiere" aria-hidden="true"></i>--}}
+{{--<span class="premiere text-uppercase">sho-kinopoisk</span>--}}
+{{--</a>--}}
+{{--</div>--}}
 
-        {{--<div class="collapse navbar-collapse" id="app-navbar-collapse">--}}
-            {{--<!-- Left Side Of Navbar -->--}}
-            {{--<ul class="nav navbar-nav">--}}
-                {{--<li><a href="{{ url('/home') }}">Home</a></li>--}}
-            {{--</ul>--}}
+{{--<div class="collapse navbar-collapse" id="app-navbar-collapse">--}}
+{{--<!-- Left Side Of Navbar -->--}}
+{{--<ul class="nav navbar-nav">--}}
+{{--<li><a href="{{ url('/home') }}">Home</a></li>--}}
+{{--</ul>--}}
 
-            {{--<!-- Right Side Of Navbar -->--}}
-            {{--<ul class="nav navbar-nav navbar-right">--}}
-                {{--<!-- Authentication Links -->--}}
-                {{--@if (Auth::guest())--}}
-                    {{--<li><a href="{{ url('/login') }}">Login</a></li>--}}
-                    {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
-                {{--@else--}}
-                    {{--<li class="dropdown">--}}
-                        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
-                            {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
-                        {{--</a>--}}
+{{--<!-- Right Side Of Navbar -->--}}
+{{--<ul class="nav navbar-nav navbar-right">--}}
+{{--<!-- Authentication Links -->--}}
+{{--@if (Auth::guest())--}}
+{{--<li><a href="{{ url('/login') }}">Login</a></li>--}}
+{{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
+{{--@else--}}
+{{--<li class="dropdown">--}}
+{{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
+{{--{{ Auth::user()->name }} <span class="caret"></span>--}}
+{{--</a>--}}
 
-                        {{--<ul class="dropdown-menu" role="menu">--}}
-                            {{--<li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>--}}
-                            {{--<li><a href="{{ url('/admin/users') }}"><i class="fa fa-btn fa-lock  "></i>Admin</a></li>--}}
-                        {{--</ul>--}}
-                    {{--</li>--}}
-                {{--@endif--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+{{--<ul class="dropdown-menu" role="menu">--}}
+{{--<li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>--}}
+{{--<li><a href="{{ url('/admin/users') }}"><i class="fa fa-btn fa-lock  "></i>Admin</a></li>--}}
+{{--</ul>--}}
+{{--</li>--}}
+{{--@endif--}}
+{{--</ul>--}}
+{{--</div>--}}
+{{--</div>--}}
 {{--</nav>--}}
 <div class="container">
     <nav class="navbar navbar-default">
@@ -65,7 +65,8 @@
         <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown mega-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection <span
+                                class="glyphicon glyphicon-chevron-down pull-right"></span></a>
 
                     <ul class="dropdown-menu mega-dropdown-menu row">
                         <li class="col-sm-3">
@@ -74,24 +75,46 @@
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="item active">
-                                            <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-                                            <h4><small>Summer dress floral prints</small></h4>
-                                            <button class="btn btn-primary" type="button">49,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                            <a href="#"><img
+                                                        src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection"
+                                                        class="img-responsive" alt="product 1"></a>
+                                            <h4>
+                                                <small>Summer dress floral prints</small>
+                                            </h4>
+                                            <button class="btn btn-primary" type="button">49,99 €</button>
+                                            <button href="#" class="btn btn-default" type="button"><span
+                                                        class="glyphicon glyphicon-heart"></span> Add to Wishlist
+                                            </button>
                                         </div><!-- End Item -->
                                         <div class="item">
-                                            <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
-                                            <h4><small>Gold sandals with shiny touch</small></h4>
-                                            <button class="btn btn-primary" type="button">9,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                            <a href="#"><img
+                                                        src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection"
+                                                        class="img-responsive" alt="product 2"></a>
+                                            <h4>
+                                                <small>Gold sandals with shiny touch</small>
+                                            </h4>
+                                            <button class="btn btn-primary" type="button">9,99 €</button>
+                                            <button href="#" class="btn btn-default" type="button"><span
+                                                        class="glyphicon glyphicon-heart"></span> Add to Wishlist
+                                            </button>
                                         </div><!-- End Item -->
                                         <div class="item">
-                                            <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
-                                            <h4><small>Denin jacket stamped</small></h4>
-                                            <button class="btn btn-primary" type="button">49,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
+                                            <a href="#"><img
+                                                        src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection"
+                                                        class="img-responsive" alt="product 3"></a>
+                                            <h4>
+                                                <small>Denin jacket stamped</small>
+                                            </h4>
+                                            <button class="btn btn-primary" type="button">49,99 €</button>
+                                            <button href="#" class="btn btn-default" type="button"><span
+                                                        class="glyphicon glyphicon-heart"></span> Add to Wishlist
+                                            </button>
                                         </div><!-- End Item -->
                                     </div><!-- End Carousel Inner -->
                                 </div><!-- /.carousel -->
                                 <li class="divider"></li>
-                                <li><a href="#">View all Collection <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+                                <li><a href="#">View all Collection <span
+                                                class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
                         </li>
                         <li class="col-sm-3">
@@ -139,6 +162,12 @@
                         </li>
                     </ul>
 
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#search">
+                          <i class="fa fa-search "></i>
+                    </a>
                 </li>
             </ul>
 
