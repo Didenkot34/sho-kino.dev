@@ -205,4 +205,8 @@ blockquote {
     margin-top: -65px;
     color: #fff;
 }
+
+#comment {
+    width: 99%;
+}
 /*End Comments*/

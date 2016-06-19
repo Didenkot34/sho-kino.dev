@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="comments">
-                    @include('trailer.comments' , ['comments' => $comments])
+                    @include('trailer.comments' , ['comments' => $comments, 'trailerId' => $trailer->id])
                 </div>
             </div>
         </div>

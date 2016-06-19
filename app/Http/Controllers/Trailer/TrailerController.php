@@ -19,7 +19,7 @@ class TrailerController extends MyController
             'trailer' => $trailerInfo,
             'activeTrailers' => $trailer->getActiveTrailers(),
             'editorsChoice' => $trailer->getEditorsChoice(),
-            'comments' => $comment->get()
+            'comments' => $comment->getCommentsByTrailerId($trailerInfo->id)
         ]);
     }
 

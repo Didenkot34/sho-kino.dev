@@ -98,8 +98,6 @@ function scrollToTop() {
 
 function addComment() {
     var commentForm = $('#form-comment');
-    var alert = $('.alert');
-    alert.hide();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -111,18 +109,29 @@ function addComment() {
     commentForm.submit(function (e) {
 
         var comment = $(this).serialize();
+        var successComment= $('#success-comment');
+        var errorComment = $('#error-comment');
         $.ajax({
             url: '/add-comment',             // указываем URL и
             dataType: "json",                     // тип загружаемых данных
             data: comment,
             type: 'POST',
             success: function (data) { // вешаем свой обработчик на функцию success
-                $('input[name = "user_id"]').addClass('hidden');
-                $('textarea[name = "comment"]').addClass('hidden');
-                $('input[name = "trailer_id"]').addClass('hidden');
-                $('button[type = "submit"]').addClass('hidden');
-                $('#reset').removeClass('hidden');
-                alert.fadeIn("slow").fadeOut(5000);
+                console.log(data);
+                if (data.messages.comment) {
+                    errorComment.text(data.messages.comment);
+                    errorComment.css( "display", "" );
+                } else {
+                    errorComment.css( "display", "none" );
+                }
+
+               if (data.messages.success) {
+                   successComment.text(data.messages.success);
+                   successComment.css( "display", "" );
+               }
+                // $('button[type = "submit"]').addClass('hidden');
+                // $('#reset').removeClass('hidden');
+                // alert.fadeIn("slow").fadeOut(5000);
             }
         });
         e.preventDefault();

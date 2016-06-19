@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Comment extends Model
 {
     protected $table = 'comments';
+    protected $id = 'id';
+    protected $comment = 'comment';
+    protected $trailerId = 'trailer_id';
+    protected $userId = 'user_id';
 
     public function trailers()
     {
@@ -17,8 +22,32 @@ class Comment extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
-    public function saveComment(array $data)
+    public function saveComment($comment,$trailerId)
     {
-        return $this->insertGetId($data);
+        return $this->db()
+            ->insert([
+                $this->comment => $comment,
+                $this->trailerId =>$trailerId,
+                $this->userId =>Auth::user()->id
+            ]);
+    }
+
+    /**
+     * @return array
+     */
+    public function getCommentsByTrailerId($trailerId)
+    {
+        return $this->db()
+            ->leftJoin('users', $this->table . '.user_id', '=', 'users.id')
+            ->where($this->trailerId, $trailerId)->get();
+
+    }
+
+    /**
+     * @return \Illuminate\Database\Query\Builder
+     */
+    private function db()
+    {
+        return \DB::table($this->table);
     }
 }
