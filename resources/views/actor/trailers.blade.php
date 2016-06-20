@@ -1,5 +1,5 @@
 <!-- Trailers with this actors-->
-<div class="container box-shadow-jumbotron">
+<div class="container-fluid box-shadow-jumbotron">
 
     <!-- Page Header -->
     <div class="row">
@@ -15,5 +15,4 @@
     @include('trailer.trailersLists', ['trailers' => $trailers])
 </div>
 <!-- Trailers with this actors-->
-<hr>
 @include('trailer.trailersListsModal', ['trailers' => $trailers])

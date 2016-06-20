@@ -1,10 +1,13 @@
 <!-- Biography-->
-<div class="container box-shadow-jumbotron">
+<div class="container-fluid box-shadow-jumbotron">
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-4">
+                <a  class="ribbon-container">
                 <img class="img img-responsive img-thumbnail trailer-img-max-height"
                      src="/uploads/actors/avatarks/originals/{!! $actor->avatarka !!}">
+                    <span class="ribbon">{!! $actor->name !!}</span>
+                </a>
             </div>
             <div class="col-md-8">
                 <table class="table table-responsive table-no-border">

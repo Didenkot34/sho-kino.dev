@@ -5,12 +5,8 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Portfolio Item Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header text-center">{!!$actor->name!!}</h1>
-            </div>
-        </div>
+        <!-- Title in Box-->
+        @include('titleInBox' , ['title' => $actor->name ])
         <!-- /.row -->
 
         <!-- Biography-->

@@ -1,5 +1,5 @@
 <!-- Biography VIDEO From Youtube-->
-<div class="container box-shadow-jumbotron">
+<div class="container-fluid box-shadow-jumbotron">
     <!-- Page Header -->
     <div class="row">
         <div class="col-lg-12">
