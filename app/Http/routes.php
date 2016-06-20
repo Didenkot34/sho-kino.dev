@@ -34,6 +34,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::any('signUp', [
         'as' => 'signUp', 'uses' => 'Auth\AuthAjaxController@signUp'
     ]);
+    Route::post('search', [
+        'as' => 'search', 'uses' => 'Search\SearchController@search'
+    ]);
 
 });
 
