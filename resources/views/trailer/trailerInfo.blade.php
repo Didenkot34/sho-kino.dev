@@ -80,41 +80,21 @@
             {!!$trailer->description!!}
         </div>
         <div class="col-md-12">
-            <ul class="nav nav-tabs" id="trailer-description">
-                <li class="active"><a data-target="#actors" data-toggle="tab">В главных ролях</a></li>
-                <li><a data-target="#comments" data-toggle="tab">Отзывы</a></li>
-            </ul>
+            <div class="card">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#actors" aria-controls="actors" role="tab"
+                                                              data-toggle="tab">В главных ролях</a></li>
+                    <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Комментарии</a>
+                    </li>
+                </ul>
 
-            <div class="tab-content">
-                <div class="tab-pane active" id="actors">
-                    <div class="container-fluid">
-                        <div class="row">
-                            @foreach($trailer->actors()->get() as $actor)
-                                <div class="col-xs-3 ">
-                                    <table class="table">
-                                        <tr>
-                                            <td>
-                                                <a href="/actor/{{$actor->slug}}">
-                                                    <img class="img img-circle img-responsive"
-                                                         src="/uploads/actors/avatarks/medium/{{$actor->avatarka}}"/>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="/actor/{{$actor->slug}}">
-                                                    <h4 class="text-center">{{$actor->name}}</h4>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            @endforeach
-                        </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="actors">
+                       @include('trailer.actors', ['actors' => $trailer->actors()->get()])
                     </div>
-                </div>
-                <div class="tab-pane" id="comments">
-                    @include('trailer.comments' , ['comments' => $comments, 'trailerId' => $trailer->id])
+                    <div class="tab-pane" id="comments">
+                        @include('trailer.comments' , ['comments' => $comments, 'trailerId' => $trailer->id])
+                    </div>
                 </div>
             </div>
         </div>
