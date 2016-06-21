@@ -82,9 +82,15 @@
         <div class="col-md-12">
             <div class="card-tabs">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#actors" aria-controls="actors" role="tab"
-                                                              data-toggle="tab">В главных ролях</a></li>
-                    <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Комментарии</a>
+                    <li role="presentation" class="active">
+                        <a  id="actors-tab" href="#actors" aria-controls="actors" role="tab" data-toggle="tab">
+                            В главных ролях
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a id="comments-tab" href="#comments" aria-controls="comments" role="tab" data-toggle="tab">
+                            Комментарии
+                        </a>
                     </li>
                 </ul>
 

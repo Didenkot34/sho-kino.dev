@@ -219,7 +219,7 @@ function signIn() {
                     errorSignIn.hide();
                     successSignin.text(data.messages.success);
                     successSignin.removeClass('hidden');
-
+                    stayInCommentsTab();
                 }
             }
         });
@@ -321,4 +321,18 @@ function scrollToTop() {
     offset = element.offset();
     offsetTop = offset.top;
     $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+
+function stayInCommentsTab() {
+    var commentButton = $('#comment-submit');
+
+    if (commentButton === null) {
+        return;
+    }
+
+    commentButton.attr('data-toggle','');
+    commentButton.attr('data-target','');
+    commentButton.attr('type','submit');
+
+
 }

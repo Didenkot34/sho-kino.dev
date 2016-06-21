@@ -9,7 +9,7 @@
                     <input type="hidden" name="trailer_id" value="{{$trailerId}}">
                     <textarea id="comment" name="comment" autofocus rows="5" wrap="soft" maxlength="520"></textarea>
                     <h6 class="pull-right">520 characters remaining</h6>
-                    <button class="btn btn-info"
+                    <button id="comment-submit" class="btn btn-info"
                             @if (Auth::guest())
                             data-toggle="modal" data-target="#signUp" type="button"
                             @else
