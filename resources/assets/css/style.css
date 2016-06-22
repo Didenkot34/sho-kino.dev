@@ -841,3 +841,21 @@ Follow me on Twitter @maridlcrmn
     margin-bottom: 17px;
 }
 /* END Actors list from search*/
+
+/*Panel-body */
+.panel-default{
+    text-align:center;
+    cursor:pointer;
+    font-family: 'Raleway',sans-serif;
+    border-color: #00C0B5;
+}
+.panel-default > .panel-footer {
+    color: #fff;
+    background-color: #00C0B5;
+    display:none;
+    text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+}
+.panel-default i{
+    font-size: 5em;
+}
+/*END Panel-body */

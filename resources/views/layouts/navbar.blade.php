@@ -112,7 +112,7 @@
                             <ul>
                                 <li class="dropdown-header">Жанр</li>
                                 @foreach($menu['genres'] as $genre)
-                                    <li><a href="#">{{$genre->name}}</a></li>
+                                    <li><a href="/films/genre_{{$genre->slug}}/year_all/country_all">{{$genre->name}}</a></li>
                                 @endforeach
                                 <li class="divider"></li>
                                 {{--<li class="dropdown-header">Tops</li>--}}
@@ -123,7 +123,7 @@
                             <ul>
                                 <li class="dropdown-header">Страна</li>
                                 @foreach($menu['countries'] as $country)
-                                    <li><a href="#">{{$country->name}}</a></li>
+                                    <li><a href="/films/genre_all/year_all/country_{{$country->slug}}">{{$country->name}}</a></li>
                                 @endforeach
                                 <li class="divider"></li>
                             </ul>
@@ -132,7 +132,7 @@
                             <ul>
                                 <li class="dropdown-header">Год</li>
                                 @foreach($menu['years'] as $year)
-                                    <li><a href="#">{{$year}}</a></li>
+                                    <li><a href="/films/genre_all/year_{{$year}}/country_all">{{$year}}</a></li>
                                 @endforeach
                                 <li class="divider"></li>
                                 <li class="dropdown-header">Newsletter</li>
