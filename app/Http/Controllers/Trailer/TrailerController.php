@@ -30,7 +30,7 @@ class TrailerController extends MyController
         $countrySl = explode('_', $countrySlug)[1];
         return view('trailer.films', [
             'trailers' => $this->myExeption($trailer->getTrailersByFilters($slug, $year, $countrySl)),
-            'genres' => $genre->get(),
+            'genres' => $genre->getActiveGenres(),
             'nameOfGenre' => $slug !== 'all' ? $genre->getNameOfGenreBySlug($slug) : false,
             'nameOfCountry' => $countrySl !== 'all' ? $country->getNameOfCountryBySlug($countrySl) : false,
             'selectedGenre' => $slug,

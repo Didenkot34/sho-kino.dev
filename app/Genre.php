@@ -17,4 +17,12 @@ class Genre extends Model
     {
         return $this->where(['slug' => $slug])->pluck('name')[0];
     }
+
+    public function getActiveGenres()
+    {
+        return $this->leftJoin('genre_trailer',$this->table . '.id', '=', 'genre_trailer.genre_id' )
+            ->whereNotNull('genre_trailer.genre_id')
+            ->groupBy($this->table . '.id')
+            ->get();
+    }
 }

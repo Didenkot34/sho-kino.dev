@@ -82,7 +82,7 @@ class Trailer extends Model
 
     public function getAllTrailerYears()
     {
-        return $this->distinct()->lists('year');
+        return $this->distinct()->orderBy('year', 'desc')->lists('year');
     }
 
     public function getPremiersOfTrailers()

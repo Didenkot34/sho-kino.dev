@@ -16,4 +16,11 @@ class Country extends Model
     {
         return $this->where(['slug' => $slug])->pluck('name')[0];
     }
+    public function getActiveCountries()
+    {
+        return $this->leftJoin('country_trailer',$this->table . '.id', '=', 'country_trailer.country_id' )
+            ->whereNotNull('country_trailer.country_id')
+            ->groupBy($this->table . '.id')
+            ->get();
+    }
 }
