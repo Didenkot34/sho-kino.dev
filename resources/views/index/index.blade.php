@@ -21,7 +21,7 @@
 
                     <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
 
-                    <div class="slider4" data-slick='{"slidesToShow": 3, "slidesToScroll":3}'>
+                    <div class="center-slider" >
                         @include('trailer.premiere', ['trailers' => $trailers])
                     </div>
                 </div>
