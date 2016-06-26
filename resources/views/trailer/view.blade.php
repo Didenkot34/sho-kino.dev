@@ -3,7 +3,7 @@
 @section('content')
 
         <!-- Page Content -->
-<div class="container">
+<div class="container-fluid">
 
     <!-- Title in Box-->
      @include('titleInBox' , ['title' => $trailer->title ])
@@ -12,11 +12,11 @@
     <!-- Portfolio Item Row -->
    <div class="container-fluid">
        <div class="row">
-           <div class="col-md-12  box-shadow-jumbotron">
+           <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                @include('trailer.trailerInfo', ['trailer' => $trailer])
            </div>
 
-           <div class="col-md-12 box-shadow-jumbotron">
+           <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                <h1 class="premiere">Что еще посмотреть?</h1>
 
                <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
@@ -25,7 +25,7 @@
                    @include('trailer.premiere', ['trailers' => $activeTrailers])
                </div>
            </div>
-           <div class="col-md-12 box-shadow-jumbotron">
+           <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                <h1 class="premiere"> Выбор Редакции</h1>
 
                <p class="lead">Новинки мирового кинопроката и блокбастеры</p>

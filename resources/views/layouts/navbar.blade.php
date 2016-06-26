@@ -46,7 +46,7 @@
 {{--</div>--}}
 {{--</div>--}}
 {{--</nav>--}}
-<div class="container">
+<div class="container-fluid">
     <nav class="navbar navbar-default">
         <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">

@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="container container-padding">
+        <div class="container-fluid container-padding">
             <!-- Wrapper for slides -->
             @include('trailer.indexCarousel',['trailers' => $trailers])
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                     <h1 class="premiere">PREMIERE</h1>
