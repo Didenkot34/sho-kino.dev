@@ -11,16 +11,16 @@ class Search extends Model
         't' => 'trailers',
         'at' => 'actor_trailer',
     ];
-    protected $slug = '.slug';
-    protected $trailerId = '.trailer_id';
-    protected $actorId = '.actor_id';
+    protected $slug = 'slug';
+    protected $trailerId = 'trailer_id';
+    protected $actorId = 'actor_id';
 
-    protected $actorName = '.name';
-    protected $actorBiography= '.biography';
+    protected $actorName = 'name';
+    protected $actorBiography = 'biography';
 
-    protected $trailerTitle = '.title';
-    protected $trailerDescription = '.description';
-    protected $trailerYear= '.year';
+    protected $trailerTitle = 'title';
+    protected $trailerDescription = 'description';
+    protected $trailerYear = 'year';
 
 
     protected $groupBy;
@@ -30,54 +30,54 @@ class Search extends Model
         return \DB::table($this->tables[$table]);
     }
 
-    public function getTrailersBySearch($search)
-    {
-        return $this->db('a')
-            ->select('*' , $this->tables['t']. $this->slug)
-            ->leftJoin($this->tables['at'], $this->tables['a']. '.id', '=', $this->tables['at'] . '.actor_id')
-            ->leftJoin($this->tables['t'], $this->tables['at']. '.trailer_id', '=', $this->tables['t'] . '.id')
-            ->where($this->tables['t'] . $this->trailerTitle, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['t'] . $this->trailerDescription, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['t'] . $this->trailerYear, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['t'] . $this->slug, 'like' , '%' . $search . '%')
-
-            ->orWhere($this->tables['a'] . $this->actorName, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['a'] . $this->slug, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['a'] . $this->actorBiography, 'like' , '%' . $search . '%')
-
-            ->groupBy($this->tables['at'].$this->trailerId)
-            ->get();
-
-    }
-
-    public function getActorsBySearch($search)
-    {
-        return $this->db('a')
-            ->select('*' , $this->tables['a']. $this->slug)
-            ->leftJoin($this->tables['at'], $this->tables['a']. '.id', '=', $this->tables['at'] . '.actor_id')
-            ->leftJoin($this->tables['t'], $this->tables['at']. '.trailer_id', '=', $this->tables['t'] . '.id')
-            ->where($this->tables['a'] . $this->actorName, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['a'] . $this->slug, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['a'] . $this->actorBiography, 'like' , '%' . $search . '%')
-
-            ->orWhere($this->tables['t'] . $this->trailerTitle, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['t'] . $this->trailerDescription, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['t'] . $this->trailerYear, 'like' , '%' . $search . '%')
-            ->orWhere($this->tables['t'] . $this->slug, 'like' , '%' . $search . '%')
-
-            ->groupBy($this->tables['at'].$this->actorId)
-            ->get();
-    }
-
-    public function getTrailersAndActorsBySearch($search)
+    public function search($search)
     {
         return [
-          'trailers' => $this->getTrailersBySearch($search),
-            'actors' => $this->getActorsBySearch($search)
+            'trailers' => $this->searchEntity($search, $this->trailerId),
+            'actors' => $this->searchEntity($search, $this->actorId)
         ];
     }
+
+    public function searchEntity($search, $entityId)
+    {
+        $searchArray = explode(' ', trim($search));
+        $searchSelect = [];
+        $where = [];
+        $number = 1;
+        $select = $entityId === $this->actorId ?
+            $this->tables['a'] . '.name, ' . $this->tables['a'] . '.slug, ' . $this->tables['a'] . '.avatarka ' : '*';
+        
+        foreach ($searchArray as $value) {
+            $where [] = $this->tables['a'] . '.' . $this->actorName . ' LIKE :' . $this->actorName . $number;
+            $where [] = $this->tables['a'] . '.' . $this->actorBiography . ' LIKE :' . $this->actorBiography . $number;
+            $where [] = $this->tables['a'] . '.' . $this->slug . ' LIKE :' . $this->slug . $number;
+
+            $where [] = $this->tables['t'] . '.' . $this->trailerTitle . ' LIKE :' . $this->trailerTitle . $number;
+            $where [] = $this->tables['t'] . '.' . $this->trailerDescription . ' LIKE :' . $this->trailerDescription . $number;
+            $where [] = $this->tables['t'] . '.' . $this->trailerYear . ' LIKE :' . $this->trailerYear . $number;
+            $where [] = $this->tables['t'] . '.' . $this->slug . ' LIKE :' . $this->slug . 'Trailer' . $number;
+
+
+            $searchSelect[$this->actorName . $number] = '%' . trim($value) . '%';
+            $searchSelect[$this->actorBiography . $number] = '%' . trim($value) . '%';
+            $searchSelect[$this->slug . $number] = '%' . trim($value) . '%';
+
+            $searchSelect[$this->trailerTitle . $number] = '%' . trim($value) . '%';
+            $searchSelect[$this->trailerDescription . $number] = '%' . trim($value) . '%';
+            $searchSelect[$this->trailerYear . $number] = '%' . trim($value) . '%';
+            $searchSelect[$this->slug . 'Trailer' . $number] = '%' . trim($value) . '%';
+            $number++;
+        }
+        $where = implode(' OR ', $where);
+
+        return \DB::select("
+                          SELECT {$select}
+                          FROM {$this->tables['a']} 
+                          LEFT JOIN {$this->tables['at']} ON {$this->tables['a']}.id = {$this->tables['at']}.actor_id
+                          LEFT JOIN {$this->tables['t']} ON {$this->tables['at']}.trailer_id = {$this->tables['t']}.id
+                          WHERE {$where}
+                          GROUP BY {$this->tables['at']}.{$entityId}
+                          ", $searchSelect
+        );
+    }
 }
-//SELECT atr.trailer_id, a.id AS actorId,t.title, a.`name` as Actor FROM sho_kinopoisk_dev.actors AS a
-//LEFT JOIN actor_trailer AS atr ON a.id = atr.actor_id
-//LEFT JOIN trailers as t ON atr.trailer_id = t.id
-//where title like '%Черепашки%Ниндзя%'
