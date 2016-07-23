@@ -3,24 +3,21 @@
 @section('content')
 
     <!-- Page Content -->
-    <div class="container">
+    <!-- Title in Box-->
+    @include('titleInBox' , ['title' => $actor->name ])
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
+                @include('actor.biography', ['actor' => $actor])
+            </div>
 
-        <!-- Title in Box-->
-        @include('titleInBox' , ['title' => $actor->name ])
-        <!-- /.row -->
-
-        <!-- Biography-->
-    @include('actor.biography', ['actor' => $actor])
-    <!--END Biography-->
-
-        <!-- Biography VIDEO From Youtube-->
-    @include('actor.videoFromYoutube' , ['videosFromYoutube' => $actor->youtube()->get()])
-    <!--END Biography VIDEO From Youtube-->
-
-        <!-- Trailers with this actors-->
-       @include('actor.trailers' , ['trailers' => $actor->trailers()->get()])
-        <!-- Trailers with this actors-->
+            <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
+                @include('actor.videoFromYoutube' , ['videosFromYoutube' => $actor->youtube()->get()])
+            </div>
+            <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
+                @include('actor.trailers' , ['trailers' => $actor->trailers()->get()])
+            </div>
+        </div>
     </div>
-    <!-- /.container -->
 @endsection
 

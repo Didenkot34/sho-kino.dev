@@ -2,9 +2,7 @@
 
 @section('content')
 
-        <!-- Page Content -->
-<div class="container-fluid">
-
+<!-- Page Content -->
     <!-- Title in Box-->
      @include('titleInBox' , ['title' => $trailer->title ])
     <!-- /.row -->
@@ -37,6 +35,5 @@
        </div>
    </div>
     <!-- /.row -->
-</div>
 <!-- /.container -->
 @endsection

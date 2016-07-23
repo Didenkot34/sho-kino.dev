@@ -2,16 +2,16 @@
 <body id="app-layout">
 <div class="container-fluid">
 
-@include('layouts.navbar')
-
-@yield('content')
-
-{{--Scroll Top Button--}}
-@include('layouts.scrollTop')
-{{--END Scroll Top Button--}}
+    @include('layouts.navbar')
+    <div class="container-fluid">
+        @yield('content')
+    </div>
+    {{--Scroll Top Button--}}
+    @include('layouts.scrollTop')
+    {{--END Scroll Top Button--}}
 <!-- Footer -->
-@include('layouts.footer')
-@include('layouts.search')
+    @include('layouts.footer')
+    @include('layouts.search')
 <!-- JavaScripts -->
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>--}}
     <script src="/assets/js/jquery-2.2.3.min.js"></script>
