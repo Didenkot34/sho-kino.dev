@@ -1,4 +1,4 @@
-@foreach($editorsChoice as $trailer)
+{{--@foreach($editorsChoice as $trailer)--}}
     <div class="col-md-2">
         <a href="/view/{{$trailer->slug}}">
             <img class="img img-responsive img-thumbnail"
@@ -9,4 +9,4 @@
 
         <p>{!!$trailer->title!!}</p>
     </div>
-@endforeach
+{{--@endforeach--}}
