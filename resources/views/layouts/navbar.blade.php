@@ -74,21 +74,8 @@
                                 <li class="dropdown-header">Выбор редакции</li>
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
-
-                                        <div class="item active">
-                                            <a href="#"><img
-                                                        src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection"
-                                                        class="img-responsive" alt="product 1"></a>
-                                            <h4>
-                                                <small>Summer dress floral prints</small>
-                                            </h4>
-                                            <button class="btn btn-primary" type="button">49,99 €</button>
-                                            <button href="#" class="btn btn-default" type="button"><span
-                                                        class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                                            </button>
-                                        </div><!-- End Item -->
-                                        @foreach($menu['editorsChoice'] as $trailer)
-                                            <div class="item ">
+                                        @foreach($menu['editorsChoice'] as $key => $trailer)
+                                            <div class="item @if($key === 0) active @endif">
                                                 <a href="/view/{{$trailer->slug}}"><img
                                                             class="img img-responsive img-thumbnail"
                                                             src="/uploads/trailers/originals/carousel/{!! $trailer->carousel_image !!}"</a>
