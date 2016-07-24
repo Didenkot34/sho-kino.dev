@@ -30,7 +30,7 @@ class IndexController extends Controller
         $actors = new Actor();
 
         return view('index.index', [
-            'actors' => $actors->getAllActors(),
+            'actors' => $actors->getActorsToIndexPage(),
             'trailers' => $trailers->getActiveTrailers(),
             'premiers' => $trailers->getPremiersOfTrailers()
         ]);

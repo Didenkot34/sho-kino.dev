@@ -26,4 +26,8 @@ class Actor extends Model
     {
         return $this->get();
     }
+    public function getActorsToIndexPage()
+    {
+        return $this->where(['show_in_index_page' => 1])->get();
+    }
 }
