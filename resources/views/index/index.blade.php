@@ -5,7 +5,7 @@
         <div class="container-fluid container-padding">
             <!-- Wrapper for slides -->
             <div class="fade-slider">
-            @each('trailer.indexCarousel', $trailers, 'trailer')
+            @each('trailer.indexCarousel', $premiers, 'trailer')
             </div>
         </div>
         <div class="container-fluid">
@@ -15,7 +15,7 @@
                     <p class="lead"> Пародии на Новинки мирового кинопроката и блокбастеры</p>
 
                     <div class="center-slider">
-                        @each('trailer.trailersSlider', $trailers, 'trailer')
+                        @each('trailer.trailersSlider', $premiers, 'trailer')
                     </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">

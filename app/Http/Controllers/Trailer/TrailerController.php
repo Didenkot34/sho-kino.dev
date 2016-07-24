@@ -47,4 +47,12 @@ class TrailerController extends MyController
             'editorsChoice' => $trailer->getEditorsChoice()
             ]);
     }
+
+    public function premiers(Trailer $trailer)
+    {
+        
+        return view('trailer.premiers', [
+            'premiers' => $trailer->getPremiersOfTrailers()
+        ]);
+    }
 }

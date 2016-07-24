@@ -28,7 +28,8 @@ class IndexController extends Controller
         $trailers = new Trailer();
 
         return view('index.index', [
-            'trailers' => $trailers->getActiveTrailers()
+            'trailers' => $trailers->getActiveTrailers(),
+            'premiers' => $trailers->getPremiersOfTrailers()
         ]);
     }
 }

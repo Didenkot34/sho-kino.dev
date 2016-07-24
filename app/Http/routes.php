@@ -43,6 +43,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('editors-choice', [
         'as' => 'editorsChoice', 'uses' => 'Trailer\TrailerController@editorsChoice'
     ]);
+    Route::get('premiers', [
+        'as' => 'premiers', 'uses' => 'Trailer\TrailerController@premiers'
+    ]);
 
 });
 
