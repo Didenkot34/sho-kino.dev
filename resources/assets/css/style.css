@@ -458,6 +458,20 @@ Follow me on Twitter @maridlcrmn
     margin-bottom: 30px;
 }
 
+@media only screen and (max-width: 356px) {
+    #comment-submit {
+        width: 130px;
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width: 347px) {
+    #comment-submit {
+        width: 120px;
+        font-size: 11px;
+    }
+}
+
+
 /*END TABS - comments and actors*/
 
 /* title on img Actors*/

@@ -2,7 +2,7 @@
     <button type="button" class="close">×</button>
     <form role="form" method="POST" action="{{ url('/search') }}">
         {!! csrf_field() !!}
-        <input type="search" name="search" placeholder="Введите Название фильма или Имя Актера" />
+        <input type="search" name="search" placeholder="Поиск" />
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
 </div>
