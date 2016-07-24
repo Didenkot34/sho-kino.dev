@@ -13,12 +13,22 @@ use App\Search;
 class SearchController extends Controller
 {
     
-    public function searchPost(Request $request)
+    public function searchPost(Request $request, Trailer $trailer)
     {
         $searchModel = new Search();
+
+        $data = $searchModel->search($request->input('search'));
+        $search = $request->input('search');
+
+        if (!$data['trailers'] && !$data['actors']) {
+            return view('search.empty', [
+                'editorsChoice' => $trailer->getEditorsChoice(),
+                'search' => $search,
+            ]);
+        }
         return view('search.search' , [
-                'data' => $searchModel->search($request->input('search')),
-                'search' => $request->input('search'),
+                'data' => $data,
+                'search' => $search,
             ]
         );
     }
