@@ -13,10 +13,18 @@ use App\Search;
 class SearchController extends Controller
 {
     
-    public function search(Request $request)
+    public function searchPost(Request $request)
     {
         $searchModel = new Search();
-        return view('search.search' , ['data' => $searchModel->search($request->input('search'))]
+        return view('search.search' , [
+                'data' => $searchModel->search($request->input('search')),
+                'search' => $request->input('search'),
+            ]
         );
+    }
+
+    public function searchGet()
+    {
+        return redirect()->route('index');
     }
 }
