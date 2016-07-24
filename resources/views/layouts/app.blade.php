@@ -12,6 +12,7 @@
 <!-- Footer -->
     @include('layouts.footer')
     @include('layouts.search')
+    @include('auth.popup.authorization')
 <!-- JavaScripts -->
     {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>--}}
     <script src="/assets/js/jquery-2.2.3.min.js"></script>

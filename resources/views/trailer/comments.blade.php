@@ -23,7 +23,6 @@
         </div>
     </div>
     <div class="row">
-        @if (Auth::guest()) @include('auth.popup.authorization') @endif
         @foreach($comments as $comment)
             <div class="col-md-12">
                 <blockquote class="quote-box">

@@ -51,7 +51,9 @@
                             <ul>
                                 <li class="dropdown-header">Жанр</li>
                                 @foreach($menu['genres'] as $genre)
-                                    <li><a href="/films/genre_{{$genre->slug}}/year_all/country_all">{{$genre->name}}</a></li>
+                                    <li>
+                                        <a href="/films/genre_{{$genre->slug}}/year_all/country_all">{{$genre->name}}</a>
+                                    </li>
                                 @endforeach
                                 <li class="divider"></li>
                                 {{--<li class="dropdown-header">Tops</li>--}}
@@ -62,7 +64,9 @@
                             <ul>
                                 <li class="dropdown-header">Страна</li>
                                 @foreach($menu['countries'] as $country)
-                                    <li><a href="/films/genre_all/year_all/country_{{$country->slug}}">{{$country->name}}</a></li>
+                                    <li>
+                                        <a href="/films/genre_all/year_all/country_{{$country->slug}}">{{$country->name}}</a>
+                                    </li>
                                 @endforeach
                                 <li class="divider"></li>
                             </ul>
@@ -89,20 +93,26 @@
                 </li>
             </ul>
             <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
-            <!-- Authentication Links -->
-            @if (!Auth::guest())
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
+            <ul class="nav navbar-nav navbar-right" style="border-color: #ffffff">
+                <!-- Authentication Links -->
+                @if (!Auth::guest())
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-            <ul class="dropdown-menu" role="menu">
-            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-            <li><a href="{{ url('/admin/users') }}"><i class="fa fa-btn fa-lock  "></i>Admin</a></li>
-            </ul>
-            </li>
-            @endif
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <li><a href="{{ url('/admin/users') }}"><i class="fa fa-btn fa-lock  "></i>Admin</a></li>
+                        </ul>
+                    </li>
+                @else
+                    <li>
+                        <a href="#user" data-toggle="modal" data-target="#signUp">
+                            <i class="fa fa-user" aria-hidden="true" ></i>
+                        </a>
+                    </li>
+                @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#search">
