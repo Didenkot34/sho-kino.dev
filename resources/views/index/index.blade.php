@@ -27,6 +27,16 @@
                         @each('trailer.trailersSlider', $trailers, 'trailer')
                     </div>
                 </div>
+
+                <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
+                    <h1 class="premiere">Actors</h1>
+
+                    <p class="lead">Только лучшие актеры</p>
+
+                    <div class="row">
+                        @each('actor.list', $actors, 'actor')
+                    </div>
+                </div>
             </div>
         </div>
     </div>

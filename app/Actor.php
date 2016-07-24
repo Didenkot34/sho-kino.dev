@@ -21,4 +21,9 @@ class Actor extends Model
     {
         return $this->where(['slug' => $slug])->first();
     }
+
+    public function getAllActors()
+    {
+        return $this->get();
+    }
 }

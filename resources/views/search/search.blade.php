@@ -10,7 +10,9 @@
             </div>
 
             <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
-                @include('actor.list', ['actors' => $data['actors']])
+              <div class="row">
+                  @each('actor.list', $data['actors'], 'actor')
+              </div>
             </div>
         </div>
     </div>

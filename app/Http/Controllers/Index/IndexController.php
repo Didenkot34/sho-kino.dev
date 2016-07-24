@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Index;
 
+use App\Actor;
 use App\Http\Requests;
 use App\Trailer;
 use App\Http\Controllers\Controller;
@@ -26,8 +27,10 @@ class IndexController extends Controller
     public function index()
     {
         $trailers = new Trailer();
+        $actors = new Actor();
 
         return view('index.index', [
+            'actors' => $actors->getAllActors(),
             'trailers' => $trailers->getActiveTrailers(),
             'premiers' => $trailers->getPremiersOfTrailers()
         ]);
