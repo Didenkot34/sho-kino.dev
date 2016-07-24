@@ -20,7 +20,7 @@
                <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
 
                <div class="center-slider">
-                   @include('trailer.premiere', ['trailers' => $activeTrailers])
+                   @each('trailer.trailersSlider', $activeTrailers, 'trailer')
                </div>
            </div>
            <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
@@ -29,8 +29,7 @@
                <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
 
                <div class="slider4" data-slick='{"slidesToShow": 3, "slidesToScroll":3}'>
-                   {{--@include('trailer.editorsChoice', ['editorsChoice' => $editorsChoice])--}}
-                   @each('trailer.editorsChoice', $editorsChoice, 'trailer')
+                   @each('trailer.trailersSlider', $editorsChoice, 'trailer')
                </div>
            </div>
        </div>
