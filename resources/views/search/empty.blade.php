@@ -11,7 +11,7 @@
                 <p class="lead">Новинки мирового кинопроката и блокбастеры</p>
 
                 <div class="slider4" data-slick='{"slidesToShow": 3, "slidesToScroll":3}'>
-                    @each('trailer.editorsChoice', $editorsChoice, 'trailer')
+                    @each('trailer.trailersSlider', $editorsChoice, 'trailer')
                 </div>
             </div>
         </div>

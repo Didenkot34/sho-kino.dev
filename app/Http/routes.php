@@ -40,6 +40,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('search', [
         'as' => 'search', 'uses' => 'Search\SearchController@searchGet'
     ]);
+    Route::get('editors-choice', [
+        'as' => 'editorsChoice', 'uses' => 'Trailer\TrailerController@editorsChoice'
+    ]);
 
 });
 

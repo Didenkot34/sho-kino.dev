@@ -40,4 +40,11 @@ class TrailerController extends MyController
             'countries' => $country->get()
         ]);
     }
+
+    public function editorsChoice(Trailer $trailer)
+    {
+        return view('trailer.editorsChoice', [
+            'editorsChoice' => $trailer->getEditorsChoice()
+            ]);
+    }
 }

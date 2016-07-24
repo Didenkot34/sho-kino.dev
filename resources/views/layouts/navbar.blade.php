@@ -43,7 +43,7 @@
                                     </div><!-- End Carousel Inner -->
                                 </div><!-- /.carousel -->
                                 <li class="divider"></li>
-                                <li><a href="#">View all Collection <span
+                                <li><a href="{{route('editorsChoice')}}">View all Collection <span
                                                 class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
                         </li>

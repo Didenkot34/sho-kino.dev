@@ -4,7 +4,9 @@
     <div class="container-fluid">
         <div class="container-fluid container-padding">
             <!-- Wrapper for slides -->
-            @include('trailer.indexCarousel',['trailers' => $trailers])
+            <div class="fade-slider">
+            @each('trailer.indexCarousel', $trailers, 'trailer')
+            </div>
         </div>
         <div class="container-fluid">
             <div class="row">
