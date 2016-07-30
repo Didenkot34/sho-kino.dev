@@ -98,6 +98,7 @@
                 @if (!Auth::guest())
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <img class="img img-circle" width="22" src="{{Auth::user()->getAvatar()}}" alt="{{Auth::user()->name}}">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
