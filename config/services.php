@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'facebook' => [
+        'client_id' => '286351998392877',
+        'client_secret' => 'df23c449e215f4d2396879294af71b5d',
+        'redirect' => 'http://sho-kinopoisk.dev/auth/facebook/callback',
+    ],
 
 ];

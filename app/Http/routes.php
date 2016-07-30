@@ -46,6 +46,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('premiers', [
         'as' => 'premiers', 'uses' => 'Trailer\TrailerController@premiers'
     ]);
+    Route::get('auth/facebook', [
+    'as' => 'facebook', 'uses' => 'Auth\SocialAuthController@redirect'
+    ]);
+    Route::get('auth/facebook/callback', [
+    'as' => 'facebook-callback', 'uses' => 'Auth\SocialAuthController@callback'
+    ]);
 
 });
 
