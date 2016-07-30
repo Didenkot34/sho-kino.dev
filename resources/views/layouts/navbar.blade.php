@@ -17,13 +17,13 @@
         <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="dropdown mega-dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collection <span
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Lang::get('navbar.collection')}}<span
                                 class="glyphicon glyphicon-chevron-down pull-right"></span></a>
 
                     <ul class="dropdown-menu mega-dropdown-menu row">
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Выбор редакции</li>
+                                <li class="dropdown-header">{{Lang::get('title.editorsChoice')}}</li>
                                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                                     <div class="carousel-inner">
                                         @foreach($menu['editorsChoice'] as $key => $trailer)
@@ -43,13 +43,13 @@
                                     </div><!-- End Carousel Inner -->
                                 </div><!-- /.carousel -->
                                 <li class="divider"></li>
-                                <li><a href="{{route('editorsChoice')}}">View all Collection <span
+                                <li><a href="{{route('editorsChoice')}}">{{Lang::get('navbar.viewAllCollection')}}<span
                                                 class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
                         </li>
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Жанр</li>
+                                <li class="dropdown-header">{{Lang::get('navbar.genre')}}</li>
                                 @foreach($menu['genres'] as $genre)
                                     <li>
                                         <a href="/films/genre_{{$genre->slug}}/year_all/country_all">{{$genre->name}}</a>
@@ -62,7 +62,7 @@
                         </li>
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Страна</li>
+                                <li class="dropdown-header">{{Lang::get('navbar.country')}}</li>
                                 @foreach($menu['countries'] as $country)
                                     <li>
                                         <a href="/films/genre_all/year_all/country_{{$country->slug}}">{{$country->name}}</a>
@@ -73,7 +73,7 @@
                         </li>
                         <li class="col-sm-3">
                             <ul>
-                                <li class="dropdown-header">Год</li>
+                                <li class="dropdown-header">{{Lang::get('navbar.year')}}</li>
                                 @foreach($menu['years'] as $year)
                                     <li><a href="/films/genre_all/year_{{$year}}/country_all">{{$year}}</a></li>
                                 @endforeach

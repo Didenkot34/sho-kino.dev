@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('titleInBox', ['title' => 'Поиск по запросу: "' . $search . '"'])
+    @include('titleInBox', ['title' => Lang::get('title.successfulSearch',['search' => $search])])
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">

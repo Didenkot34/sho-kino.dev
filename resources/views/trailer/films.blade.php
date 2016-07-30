@@ -10,7 +10,7 @@
                         <div class="dropdown btn-group">
                             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"
                                     data-hover="dropdown">
-                                Жанр
+                                {{Lang::get('navbar.genre')}}
                                 @if($selectedGenre !== 'all' )
                                     <span class="premiere">{{mb_strtoupper($nameOfGenre)}}</span>
                                 @endif
