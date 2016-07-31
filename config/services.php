@@ -39,5 +39,15 @@ return [
         'client_secret' => 'df23c449e215f4d2396879294af71b5d',
         'redirect' => 'http://sho-kinopoisk.dev/auth/facebook/callback',
     ],
+    'google' => [
+        'client_id' => '231093203826-pgoj0o35mnuko0r6dv85jkdfaq061icg.apps.googleusercontent.com',
+        'client_secret' => 'TTKmQuwpAfo5bsLPH0YbA4eU',
+        'redirect' => 'http://sho-kinopoisk.dev/auth/google/callback',
+    ],
+    'twitter' => [
+        'client_id' => 'Br5vgvR1B7oJDSEhXUK8lEhN7',
+        'client_secret' => 'GpMyBGNv3MU8L1vFj6VOU0JK9b1FCOXOd4Ttc4szbjhahrjywO',
+        'redirect' => 'http://sho-kinopoisk.dev/auth/twitter/callback',
+    ],
 
 ];

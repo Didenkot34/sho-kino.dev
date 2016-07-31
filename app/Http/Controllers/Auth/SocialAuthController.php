@@ -9,16 +9,16 @@ use Socialite;
 
 class SocialAuthController extends Controller
 {
-    public function redirect(Request $request)
+    public function redirect(Request $request, $provider)
     {
         session(['previousUrl' => $request->session()->previousUrl()]);
-        return Socialite::driver('facebook')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
-    public function callback(SocialAccountService $service, Request $request)
+    public function callback(SocialAccountService $service, Request $request, $provider)
     {
 
-        $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
+        $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
 
         auth()->login($user);
         if ($request->session()->has('previousUrl')) {

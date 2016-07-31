@@ -39,7 +39,8 @@
                     <!-- Button -->
                     <div class="col-sm-12 controls">
                         <button id="btn-login" class="btn btn-success" type="submit">Login </button>
-                        <a id="btn-fblogin" href="{{url('auth/facebook')}}" class="btn btn-primary">Login with Facebook</a>
+                        <a id="btn-fblogin" href="{{url('auth/facebook')}}" class="btn btn-primary">Login with <i class="fa fa-facebook-f"></i></a>
+                        <a href="{{url('auth/google')}}"  class="btn btn-gp gp-linkedin btn-danger">Login with <i class="fa fa-google-plus"></i></a>
                     </div>
                 </div>
 
