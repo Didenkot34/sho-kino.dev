@@ -5,7 +5,8 @@
                 <div id="error-comment" class="alert alert-danger hidden"></div>
                 <div id="success-comment" class="alert alert-success hidden">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                        ×</button>
+                        ×
+                    </button>
                     <span class="glyphicon glyphicon-ok"></span>
                     {!!Lang::get('title.comments.successComment')!!}
                 </div>
@@ -28,26 +29,43 @@
         </div>
     </div>
     <div class="row">
-        @foreach($comments as $comment)
-            <div class="col-md-12">
-                <blockquote class="quote-box">
-                    <p class="quotation-mark">
-                        “
-                    </p>
-                    <p class="quote-text">
-                        {!! $comment->comment !!}
-                    </p>
-                    <hr>
-                    <div class="blog-post-actions">
-                        <p class="blog-post-bottom pull-left">
-                            {{$comment->name}}
-                        </p>
-                        {{--<p class="blog-post-bottom pull-right">--}}
-                        {{--<span class="badge quote-badge">896</span> <i class="fa fa-heart-o"></i>--}}
-                        {{--</p>--}}
-                    </div>
-                </blockquote>
+        <div class='col-md-12'>
+            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                <!-- Bottom Carousel Indicators -->
+                <ol class="carousel-indicators">
+                    @foreach($comments as $key => $comment)
+                        <li data-target="#quote-carousel" data-slide-to="{{$key}}"
+                            @if($key === 0) class="active" @endif>  </li>
+                    @endforeach
+                </ol>
+
+                <!-- Carousel Slides / Quotes -->
+                <div class="carousel-inner">
+
+                    <!-- Quotes -->
+                    @foreach($comments as $key => $comment)
+                        <div class="item @if($key === 0) active @endif">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-3 text-center">
+                                        <img class="img-circle" src="@if($comment->avatar){{$comment->avatar}}@else /profile.png @endif"
+                                             style="width: 100px;height:100px;">
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p>{{$comment->comment}}</p>
+                                        <small>{{$comment->name}}</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                @endforeach
+                <!-- Carousel Buttons Next/Prev -->
+                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i
+                                class="fa fa-chevron-left"></i></a>
+                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i
+                                class="fa fa-chevron-right"></i></a>
+                </div>
             </div>
-        @endforeach
+        </div>
     </div>
 </div>
