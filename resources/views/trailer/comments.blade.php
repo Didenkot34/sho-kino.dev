@@ -2,8 +2,13 @@
     <div class="row">
         <div class="col-md-12">
             <div class="span4 well" style="padding-bottom:0">
-                <div id="error-comment" class="alert alert-danger hidden"> </div>
-                <div id="success-comment" class="alert alert-success hidden"> </div>
+                <div id="error-comment" class="alert alert-danger hidden"></div>
+                <div id="success-comment" class="alert alert-success hidden">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        ×</button>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    {!!Lang::get('title.comments.successComment')!!}
+                </div>
                 <form id="form-comment" accept-charset="UTF-8" action="" method="POST" class="form-group">
                     {!! csrf_field() !!}
                     <input type="hidden" name="trailer_id" value="{{$trailerId}}">
@@ -16,7 +21,7 @@
                             type='submit'
                             @endif
                     >
-                        Post New Message
+                        {!!Lang::get('title.comments.submitButton')!!}
                     </button>
                 </form>
             </div>

@@ -39,7 +39,7 @@ class Comment extends Model
     {
         return $this->db()
             ->leftJoin('users', $this->table . '.user_id', '=', 'users.id')
-            ->where($this->trailerId, $trailerId)->get();
+            ->where($this->trailerId, $trailerId)->orderBy('comments.created_at','desc')->get();
 
     }
 

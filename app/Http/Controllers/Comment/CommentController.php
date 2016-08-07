@@ -36,7 +36,7 @@ class CommentController extends Controller
             $id = $comment->saveComment($request->input('comment'),$request->input('trailer_id'));
             return response()->json([
                 'errors' => true,
-                'messages' => ['success' => Auth::user()->name . ', Ваш комметарий успешно добавлен и будет опубликован сразу же поле проверки! Спасибо за Ваш отзыв' ]
+                'messages' => ['userName' => Auth::user()->name]
             ]);
         }
 

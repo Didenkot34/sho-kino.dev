@@ -144,9 +144,10 @@ function addComment() {
                     errorComment.addClass('hidden');
                 }
 
-               if (data.messages.success) {
-                   successComment.text(data.messages.success);
-                   successComment.removeClass('hidden').fadeIn("slow").fadeOut(15000);
+               if (data.messages.userName) {
+                   successComment.find('p').find('span').text(data.messages.userName);
+                   successComment.removeClass('hidden');
+                   $('#comment').val('');
                }
                 // $('button[type = "submit"]').addClass('hidden');
                 // $('#reset').removeClass('hidden');

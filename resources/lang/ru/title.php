@@ -22,5 +22,11 @@ return [
     'notFoundSearch' => 'Поиск по запросу ":search"  не дал результатов.<br>
     Уточните поиск или выберите что посмотреть из наших рекомендаций.',
     'successfulSearch' => 'Поиск по запросу ":search" ',
+    'comments' => [
+        'submitButton' => 'Оставить отзыв',
+        'successComment' => '<strong>Сообщение отправленно</strong>
+                    <hr class="message-inner-separator">
+                    <p><span> </span>, Ваш комметарий успешно добавлен и будет опубликован сразу же после проверки! Спасибо за Ваш отзыв. </p>',
+    ],
 
 ];
