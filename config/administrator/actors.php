@@ -15,6 +15,10 @@ return [
         'name' => [
             'type' => 'text',
         ],
+        'sex' => [
+            'type' => 'text',
+            'title' => 'Пол',
+        ],
         'show_in_index_page' => [
             'type' => 'bool',
             'title' => 'Show in index page?',

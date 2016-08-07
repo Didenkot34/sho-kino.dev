@@ -12,10 +12,10 @@
             </div>
 
             <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
-                @include('actor.videoFromYoutube' , ['videosFromYoutube' => $actor->youtube()->get()])
+                @include('actor.videoFromYoutube' , ['videosFromYoutube' => $actor->youtube()->get(), 'actorName' => $actor->name, 'actorSex' => $actor->sex])
             </div>
             <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
-                @include('actor.trailers' , ['trailers' => $actor->trailers()->get()])
+                @include('actor.trailers' , ['trailers' => $actor->trailers()->get(), 'actorName' => $actor->name, 'actorSex' => $actor->sex])
             </div>
         </div>
     </div>

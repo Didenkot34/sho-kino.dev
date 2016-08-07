@@ -2,8 +2,8 @@
 <!-- Page Header -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="premiere">Видео благодаря которым он стал популярен
-            <small>Secondary Text</small>
+        <h1 class="premiere"> @if($actorSex == 'м'){!! Lang::get('actor.videosFromYoutube',['sex' =>'стал популярен','actorName' => $actorName]) !!} @else
+                {!! Lang::get('actor.videosFromYoutube',['sex' =>'стала популярной','actorName' => $actorName]) !!}  @endif
         </h1>
     </div>
 </div>

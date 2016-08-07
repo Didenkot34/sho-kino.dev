@@ -7,7 +7,7 @@
                     <tr>
                         <td>
                             <a href="/actor/{{$actor->slug}}">
-                                <img class="img img-circle img-responsive"
+                                <img class="img img-circle img-responsive" width="200px" height="200px"
                                      src="/uploads/actors/avatarks/medium/{{$actor->avatarka}}"/>
                             </a>
                         </td>
