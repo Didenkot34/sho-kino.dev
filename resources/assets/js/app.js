@@ -222,6 +222,7 @@ function signIn() {
                     successSignin.text(data.messages.success);
                     successSignin.removeClass('hidden');
                     stayInCommentsTab();
+                    reloadCurrentPageAfter2minutes();
                 }
             }
         });
@@ -284,11 +285,16 @@ function signUp() {
                     errorSignUp.hide();
                     successSignup.text(data.messages.success);
                     successSignup.removeClass('hidden');
+                    reloadCurrentPageAfter2minutes()
                 }
             }
         });
         e.preventDefault();
     });
+}
+
+function reloadCurrentPageAfter2minutes() {
+    window.setTimeout(window.location.reload(), 3000);
 }
 
 function showSignInBox() {
