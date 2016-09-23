@@ -45,7 +45,7 @@
                     <!-- Quotes -->
                     @foreach($comments as $key => $comment)
                         <div class="item @if($key === 0) active @endif">
-                            <blockquote>
+                            <blockquote class="margin-left-20px">
                                 <div class="row">
                                     <div class="col-sm-3 text-center">
                                         <img class="img-circle" src="@if($comment->avatar){{$comment->avatar}}@else /profile.png @endif"
