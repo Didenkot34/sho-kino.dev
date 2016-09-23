@@ -21,6 +21,10 @@ return [
             'title' => 'Users',
             'name_field' => 'name',
         ],
+        'active' => [
+            'type' => 'bool',
+            'title' => 'Activated',
+        ],
     ],
     'filters' => [
         'comment' => [

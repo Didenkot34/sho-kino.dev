@@ -27,45 +27,21 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="row">
         <div class='col-md-12'>
-            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-                <!-- Bottom Carousel Indicators -->
-                <ol class="carousel-indicators">
-                    @foreach($comments as $key => $comment)
-                        <li data-target="#quote-carousel" data-slide-to="{{$key}}"
-                            @if($key === 0) class="active" @endif>  </li>
-                    @endforeach
-                </ol>
-
-                <!-- Carousel Slides / Quotes -->
-                <div class="carousel-inner">
-
-                    <!-- Quotes -->
-                    @foreach($comments as $key => $comment)
-                        <div class="item @if($key === 0) active @endif">
-                            <blockquote class="margin-left-20px">
-                                <div class="row">
-                                    <div class="col-sm-3 text-center">
-                                        <img class="img-circle" src="@if($comment->avatar){{$comment->avatar}}@else /profile.png @endif"
-                                             style="width: 100px;height:100px;">
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <p>{{$comment->comment}}</p>
-                                        <small>{{$comment->name}}</small>
-                                    </div>
-                                </div>
-                            </blockquote>
+            @foreach($comments as $key => $comment)
+                <blockquote class="user-comment">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <img class="img-circle"
+                                 src="@if($comment->avatar){{$comment->avatar}}@else /profile.png @endif">
                         </div>
-                @endforeach
-                <!-- Carousel Buttons Next/Prev -->
-                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i
-                                class="fa fa-chevron-left"></i></a>
-                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i
-                                class="fa fa-chevron-right"></i></a>
-                </div>
-            </div>
+                        <div class="col-md-9">
+                            <p>{{$comment->comment}}</p>
+                            <small>{{$comment->name}}</small>
+                        </div>
+                    </div>
+                </blockquote>
+            @endforeach
         </div>
     </div>
 </div>
