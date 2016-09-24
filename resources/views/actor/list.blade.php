@@ -1,4 +1,4 @@
-<div class="col-lg-3">
+<div class="col-md-3">
 
     <div class="box-shadow-jumbotron ribbon-container">
         <div class="card hovercard ">
