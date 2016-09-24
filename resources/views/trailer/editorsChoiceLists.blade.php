@@ -3,7 +3,7 @@
 'title' => Lang::get('title.editorsChoice'),
 'titleDescription' => Lang::get('title.editorsChoiceDescription')
 ])
-    <div class="slider4" data-slick='{"slidesToShow": 4, "slidesToScroll":1}'>
+    <div class="slider4" data-slick='{"slidesToShow": 3, "slidesToScroll":1}'>
         @each('trailer.trailersSlider', $editorsChoice, 'trailer')
     </div>
 </div>
