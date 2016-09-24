@@ -34,10 +34,10 @@
                                                 <h4>
                                                     <small>{!!$trailer->title!!}</small>
                                                 </h4>
-                                                <button class="btn btn-primary" type="button">49,99 €</button>
-                                                <button href="#" class="btn btn-default" type="button"><span
-                                                            class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                                                </button>
+                                                {{--<button class="btn btn-primary" type="button">49,99 €</button>--}}
+                                                {{--<button href="#" class="btn btn-default" type="button"><span--}}
+                                                            {{--class="glyphicon glyphicon-heart"></span> Add to Wishlist--}}
+                                                {{--</button>--}}
                                             </div><!-- End Item -->
                                         @endforeach
                                     </div><!-- End Carousel Inner -->
@@ -78,14 +78,14 @@
                                     <li><a href="/films/genre_all/year_{{$year}}/country_all">{{$year}}</a></li>
                                 @endforeach
                                 <li class="divider"></li>
-                                <li class="dropdown-header">Newsletter</li>
-                                <form class="form" role="form">
-                                    <div class="form-group">
-                                        <label class="sr-only" for="email">Email address</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter email">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                </form>
+                                {{--<li class="dropdown-header">Newsletter</li>--}}
+                                {{--<form class="form" role="form">--}}
+                                    {{--<div class="form-group">--}}
+                                        {{--<label class="sr-only" for="email">Email address</label>--}}
+                                        {{--<input type="email" class="form-control" id="email" placeholder="Enter email">--}}
+                                    {{--</div>--}}
+                                    {{--<button type="submit" class="btn btn-primary btn-block">Sign in</button>--}}
+                                {{--</form>--}}
                             </ul>
                         </li>
                     </ul>
