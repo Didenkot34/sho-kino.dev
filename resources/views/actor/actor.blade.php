@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('meta-tag')
+    {!! $metaTags !!}
+@stop
 @section('content')
 
     <!-- Page Content -->

@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('meta-tag')
+    {!! $metaTags !!}
+@stop
 @section('content')
     @include('titleInBox', ['title' => $title])
     <div class="container-fluid">

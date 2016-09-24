@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Search;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\MyController;
 use App\Actor;
 use App\Trailer;
 use App\Search;
 
-class SearchController extends Controller
+class SearchController extends MyController
 {
     
     public function searchPost(Request $request, Trailer $trailer)
@@ -24,11 +24,13 @@ class SearchController extends Controller
             return view('search.empty', [
                 'editorsChoice' => $trailer->getEditorsChoice(),
                 'title' => \Lang::get('title.notFoundSearch',['search' => $search]),
+                'metaTags' => $this->createMetaTags(),
             ]);
         }
         return view('search.search' , [
                 'data' => $data,
                 'title' => \Lang::get('title.successfulSearch',['search' => $search]),
+                'metaTags' => $this->createMetaTags(),
             ]
         );
     }

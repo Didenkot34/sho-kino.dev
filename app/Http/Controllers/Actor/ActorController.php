@@ -14,9 +14,13 @@ class ActorController extends MyController
     public function actor(Actor $actor, $slug)
     {
         $trailer = new Trailer();
+        $actorInfo = $this->myExeption($actor->getActorBySlug($slug));
+        $this->metaTitle = $actorInfo->name . ' - ' . $this->constMetaDescription;
+        $this->metaDescription = str_limit($actorInfo->biography, '200','...');
         return view('actor.actor',[
-            'actor' => $this->myExeption($actor->getActorBySlug($slug)),
-            'editorsChoice' => $trailer->getEditorsChoice()
+            'actor' => $actorInfo,
+            'editorsChoice' => $trailer->getEditorsChoice(),
+            'metaTags' => $this->createMetaTags(),
         ]);
     }
 }

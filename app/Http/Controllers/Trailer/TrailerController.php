@@ -14,12 +14,16 @@ class TrailerController extends MyController
     public function view(Trailer $trailer, Comment $comment, $slug)
     {
         $trailerInfo = $this->myExeption($trailer->getTrailerBySlug($slug));
+        
+        $this->metaTitle = $trailerInfo->title . ' - ' . $this->constMetaDescription;
+        $this->metaDescription = str_limit($trailerInfo->description, '200','...');
 
         return view('trailer.view', [
             'trailer' => $trailerInfo,
             'activeTrailers' => $trailer->getActiveTrailers(),
             'editorsChoice' => $trailer->getEditorsChoice(),
-            'comments' => $comment->getCommentsByTrailerId($trailerInfo->id)
+            'comments' => $comment->getCommentsByTrailerId($trailerInfo->id),
+            'metaTags' => $this->createMetaTags(),
         ]);
     }
 
@@ -38,14 +42,16 @@ class TrailerController extends MyController
             'selectedCountry' => $countrySl,
             'allTrailerYears' => $trailer->getAllTrailerYears(),
             'countries' => $country->get(),
-            'editorsChoice' => $trailer->getEditorsChoice()
+            'editorsChoice' => $trailer->getEditorsChoice(),
+            'metaTags' => $this->createMetaTags(),
         ]);
     }
 
     public function editorsChoice(Trailer $trailer)
     {
         return view('trailer.editorsChoicePage', [
-            'editorsChoice' => $trailer->getEditorsChoice()
+            'editorsChoice' => $trailer->getEditorsChoice(),
+            'metaTags' => $this->createMetaTags(),
             ]);
     }
 
@@ -53,7 +59,8 @@ class TrailerController extends MyController
     {
         
         return view('trailer.premiers', [
-            'premiers' => $trailer->getPremiersOfTrailers()
+            'premiers' => $trailer->getPremiersOfTrailers(),
+            'metaTags' => $this->createMetaTags(),
         ]);
     }
 }
