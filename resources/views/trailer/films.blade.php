@@ -99,6 +99,7 @@
                         </div>
                     </div>
                 </div>
+                @if(count($trailers))
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header premiere">
@@ -114,12 +115,16 @@
                 <!-- /.row -->
 
                 <!-- Projects Row -->
-                @if($trailers)
                     @include('trailer.trailersLists', ['trailers' => $trailers])
                     @include('trailer.trailersListsModal', ['trailers' => $trailers])
-                @endif
+                @else
+                    <h1 class="text-center premiere">{{Lang::get('title.usersChoiceEmpty')}}</h1>
 
+                @endif
             </div>
+            @if(!count($trailers))
+                @include('trailer.editorsChoiceLists', ['editorsChoice' => $editorsChoice])
+            @endif
         </div>
     </div>
 @stop

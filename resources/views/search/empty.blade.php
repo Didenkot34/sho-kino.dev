@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('titleInBox', ['title' => Lang::get('title.notFoundSearch',['search' => $search])])
+    @include('titleInBox', ['title' => $title])
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">

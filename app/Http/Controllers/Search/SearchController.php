@@ -23,12 +23,12 @@ class SearchController extends Controller
         if (!$data['trailers'] && !$data['actors']) {
             return view('search.empty', [
                 'editorsChoice' => $trailer->getEditorsChoice(),
-                'search' => $search,
+                'title' => \Lang::get('title.notFoundSearch',['search' => $search]),
             ]);
         }
         return view('search.search' , [
                 'data' => $data,
-                'search' => $search,
+                'title' => \Lang::get('title.successfulSearch',['search' => $search]),
             ]
         );
     }

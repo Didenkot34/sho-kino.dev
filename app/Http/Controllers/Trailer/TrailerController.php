@@ -37,13 +37,14 @@ class TrailerController extends MyController
             'selectedYear' => $year,
             'selectedCountry' => $countrySl,
             'allTrailerYears' => $trailer->getAllTrailerYears(),
-            'countries' => $country->get()
+            'countries' => $country->get(),
+            'editorsChoice' => $trailer->getEditorsChoice()
         ]);
     }
 
     public function editorsChoice(Trailer $trailer)
     {
-        return view('trailer.editorsChoice', [
+        return view('trailer.editorsChoicePage', [
             'editorsChoice' => $trailer->getEditorsChoice()
             ]);
     }
