@@ -2,8 +2,8 @@
 <div class="container-fluid">
     <div class="row">
         @foreach($actors as $actor)
-            <div class="col-xs-3 ">
-                <table class="table">
+            <div class="col-md-3 ">
+                <table class="table table-responsive">
                     <tr>
                         <td>
                             <a href="/actor/{{$actor->slug}}">
