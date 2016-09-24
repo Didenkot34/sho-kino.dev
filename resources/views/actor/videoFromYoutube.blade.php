@@ -10,7 +10,10 @@
 <!-- /.row -->
 <div class="row">
     @foreach($videosFromYoutube as $video)
-        <div class="col-md-4 portfolio-item">
+        <div class="@if(count($videosFromYoutube) === 1)col-md-12
+        @elseif(count($videosFromYoutube) === 2) col-md-6
+        @elseif(count($videosFromYoutube) > 2) col-md-4
+        @endif portfolio-item">
             <div class="box-shadow-jumbotron">
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="{{$video->video_link}}"
