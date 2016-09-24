@@ -102,7 +102,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header premiere">
-                            <small>Популярные фильмы</small>
+                            <small>Фильмы</small>
                             @if($selectedYear !== 'all' )  {{$selectedYear}} года @endif
                             @if($nameOfGenre)
                                 <small> в жанре</small>

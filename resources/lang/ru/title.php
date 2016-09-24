@@ -12,8 +12,8 @@ return [
     */
 
     'editorsChoice' => 'Выбор редакции',
-    'whatWatch' => 'Что еще посмотреть?',
-    'noveltyAndBlockbaster' => 'Новинки мирового кинопроката и блокбастеры',
+    'similarFilms' => 'Что еще посмотреть?',
+    'similarFilmsDescription' => 'Фильмы, которые могли бы Вам понравится',
     'editorsChoiceDescription' => 'Новинки мирового кинопроката и блокбастеры',
     'premiere' => 'Премъеры',
     'premiereDescription' => 'Продии трейлеров на новинки мирового кинопроката и блокбастеров',

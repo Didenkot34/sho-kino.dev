@@ -10,6 +10,7 @@
         </div>
         <div class="container-fluid">
             <div class="row">
+                <!-- Premier -->
                 <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                     @include('titleForBox' , [
                                   'title' => mb_strtoupper(Lang::get('title.premiere')),
@@ -19,7 +20,7 @@
                         @each('trailer.trailersSlider', $premiers, 'trailer')
                     </div>
                 </div>
-
+                <!-- All Films -->
                 <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                     @include('titleForBox' , [
                                   'title' => mb_strtoupper(Lang::get('title.films')),
@@ -29,7 +30,7 @@
                         @each('trailer.trailersSlider', $trailers, 'trailer')
                     </div>
                 </div>
-
+                <!-- Actors -->
                 <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                     @include('titleForBox' , [
                                   'title' => mb_strtoupper(Lang::get('title.actors')),
