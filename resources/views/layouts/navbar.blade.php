@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand" href="{{url('/')}}">
                 <i class="fa fa-video-camera premiere" aria-hidden="true"></i>
-                <span class="premiere text-uppercase">sho-kinopoisk</span>
+                <span class="premiere text-uppercase">sho-kino</span>
             </a>
         </div>
 

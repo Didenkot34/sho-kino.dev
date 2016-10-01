@@ -12,13 +12,16 @@
             <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
                 @include('actor.biography', ['actor' => $actor])
             </div>
-
-            <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
-                @include('actor.videoFromYoutube' , ['videosFromYoutube' => $actor->youtube()->get(), 'actorName' => $actor->name, 'actorSex' => $actor->sex])
-            </div>
-            <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
-                @include('actor.trailers' , ['trailers' => $actor->trailers()->get(), 'actorName' => $actor->name, 'actorSex' => $actor->sex])
-            </div>
+            @if(count($actor->youtube()->get()))
+                <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
+                    @include('actor.videoFromYoutube' , ['videosFromYoutube' => $actor->youtube()->get(), 'actorName' => $actor->name, 'actorSex' => $actor->sex])
+                </div>
+            @endif
+            @if(count($actor->trailers()->get()))
+                <div class="col-md-10 col-md-offset-1 box-shadow-jumbotron">
+                    @include('actor.trailers' , ['trailers' => $actor->trailers()->get(), 'actorName' => $actor->name, 'actorSex' => $actor->sex])
+                </div>
+            @endif
         </div>
     </div>
 @endsection
