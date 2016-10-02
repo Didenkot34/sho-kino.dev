@@ -9,14 +9,14 @@
         <div class="col-md-8">
             <table class="table table-responsive table-no-border">
                 <tr>
-                    <td><h4>День Рождения : </h4></td>
+                    <td><h4>{{Lang::get('actor.birthday')}} : </h4></td>
                     <td>
                         <h4 class="premiere"> {{$actor->birthday}}
                         </h4>
                     </td>
                 </tr>
                 <tr>
-                    <td><h4>Возраст: </h4></td>
+                    <td><h4>{{Lang::get('actor.age')}}: </h4></td>
                     <td>
                         <h4 class="premiere">
                             {{date('Y-m-d') - $actor->birthday }}
@@ -24,17 +24,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><h4>Знак Зодиака: </h4></td>
+                    <td><h4>{{Lang::get('actor.zodiacTitle')}}: </h4></td>
                     <td>
-                        <h4>
-                            <a href="#" class="premiere text-capitalize"> </a>
-                        </h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td><h4>Страна: </h4></td>
-                    <td>
-                        <h4>
+                        {{--<h4>--}}
+                        {{--<a href="#" class="premiere text-capitalize"> </a>--}}
+                        {{--</h4>--}}
+                        <h4 class="premiere">
+                            {{$zodiac}}
                         </h4>
                     </td>
                 </tr>
@@ -43,7 +39,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-mb-12">
-                    <h3 class="premiere text-center ">Биография</h3>
+                    <h3 class="premiere text-center ">{{Lang::get('actor.biography')}}</h3>
                 </div>
                 <div class="col-mb-12">
                     {!!$actor->biography!!}
