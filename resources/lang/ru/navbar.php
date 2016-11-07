@@ -13,6 +13,7 @@ return [
 
     'collection' => 'Kоллекция',
     'viewAllCollection' => 'Смотреть всю коллекцию',
+    'viewAllActors' => 'Смотреть всех актеров',
     'genre' => 'Жанр',
     'country' => 'Страна',
     'year' => 'Год',

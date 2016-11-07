@@ -44,6 +44,8 @@
                                 </div><!-- /.carousel -->
                                 <li class="divider"></li>
                                 <li><a href="{{route('editorsChoice')}}">{{Lang::get('navbar.viewAllCollection')}}<span
+                                                class="glyphicon glyphicon-chevron-right pull-right"></span></a></li><li class="divider"></li>
+                                <li><a href="{{route('actors')}}">{{Lang::get('navbar.viewAllActors')}}<span
                                                 class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
                             </ul>
                         </li>

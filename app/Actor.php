@@ -24,7 +24,7 @@ class Actor extends Model
 
     public function getAllActors()
     {
-        return $this->get();
+        return $this->paginate(20);
     }
     public function getActorsToIndexPage()
     {
