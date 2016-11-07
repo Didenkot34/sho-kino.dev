@@ -29,9 +29,9 @@ class TrailerController extends MyController
 
     public function films(Trailer $trailer, Genre $genre, Country $country ,$genreSlug, $yearNumber, $countrySlug)
     {
-        $slug = explode('_', $genreSlug)[1];
-        $year = explode('_', $yearNumber)[1];
-        $countrySl = explode('_', $countrySlug)[1];
+        $slug = count(explode('_', $genreSlug)) > 1 ? explode('_', $genreSlug)[1] : explode('_', $genreSlug)[0];
+        $year = count(explode('_', $yearNumber)) > 1 ? explode('_', $yearNumber)[1] : explode('_', $yearNumber)[0];
+        $countrySl = count(explode('_', $countrySlug)) > 1 ? explode('_', $countrySlug)[1] : explode('_', $countrySlug)[0];
         return view('trailer.films', [
             'trailers' => $this->myExeption($trailer->getTrailersByFilters($slug, $year, $countrySl)),
             'genres' => $genre->getActiveGenres(),
