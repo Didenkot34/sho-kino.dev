@@ -34,7 +34,7 @@ class ActorController extends MyController
 
     public function actors(Actor $actor)
     {
-        $this->metaTitle = \Lang::get('title.actors');
+        $this->metaTitle = \Lang::get('title.actors') . ' - ' . $this->constMetaDescription;;
         $this->metaDescription = \Lang::get('title.actorsDescription');
         return view('actor.actors', [
             'actors' => $actor->getAllActors(),
