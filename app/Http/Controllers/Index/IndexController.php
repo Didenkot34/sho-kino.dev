@@ -32,7 +32,7 @@ class IndexController extends MyController
         return view('index.index', [
             'actors' => $actors->getActorsToIndexPage(),
             'trailers' => $trailers->getActiveTrailers(),
-            'premiers' => $trailers->getPremiersOfTrailers(),
+            'premiers' => $trailers->getPremiers(),
             'metaTags' => $this->createMetaTags(),
         ]);
     }
