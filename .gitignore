@@ -6,4 +6,6 @@ Homestead.json
 .env
 
 workspace.xml
+.idea/workspace.xml
+
 /public/uploads/*
