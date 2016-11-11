@@ -10,10 +10,7 @@ return [
     'edit_fields' => [
         'name' => [
             'type' => 'text',
-        ],
-        'slug' => [
-            'type' => 'text',
-        ],
+        ]
     ],
     'filters' => [
         'name' => [

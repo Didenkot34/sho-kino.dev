@@ -100,4 +100,10 @@ class Trailer extends Model
         return $query->where(['active' => true]);
 
     }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = $value;
+        $this->attributes['slug'] = str_slug($value);
+    }
 }

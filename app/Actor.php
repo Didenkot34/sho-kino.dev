@@ -30,4 +30,9 @@ class Actor extends Model
     {
         return $this->where(['show_in_index_page' => 1])->get();
     }
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = str_slug($value);
+    }
 }

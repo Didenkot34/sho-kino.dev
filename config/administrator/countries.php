@@ -11,9 +11,6 @@ return [
         'name' => [
             'type' => 'text',
         ],
-        'slug' => [
-            'type' => 'text',
-        ],
     ],
     'filters' => [
         'name' => [

@@ -23,9 +23,6 @@ return [
             'type' => 'bool',
             'title' => 'Show in index page?',
         ],
-        'slug' => [
-            'type' => 'text',
-        ],
         'birthday' => [
             'type' => 'date',
             'title' => 'Birthday',

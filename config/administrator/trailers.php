@@ -20,9 +20,6 @@ return [
         'title' => [
             'type' => 'text',
         ],
-        'slug' => [
-            'type' => 'text',
-        ],
         'cinematographs' => [
                 'type' => 'relationship',
                 'title' => 'Cinematograph',

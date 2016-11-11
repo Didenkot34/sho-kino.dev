@@ -25,4 +25,9 @@ class Genre extends Model
             ->groupBy($this->table . '.id')
             ->get();
     }
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = str_slug($value);
+    }
 }
