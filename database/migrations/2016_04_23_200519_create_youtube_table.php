@@ -28,6 +28,6 @@ class CreateYoutubeTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('youtube');
     }
 }

@@ -13,9 +13,17 @@ class CreateActorYoutubeTable extends Migration
     public function up()
     {
         Schema::create('actor_youtube', function (Blueprint $table) {
-            $table->integer('actor_id');
-            $table->integer('youtube_id');
+            $table->integer('actor_id')->unsigned();
+            $table->integer('youtube_id')->unsigned();
             $table->primary(['actor_id', 'youtube_id']);
+
+            $table->foreign('actor_id')
+                ->references('id')->on('actors')
+                ->onDelete('cascade');
+
+            $table->foreign('youtube_id')
+                ->references('id')->on('youtube')
+                ->onDelete('cascade');
 
         });
     }
@@ -27,6 +35,13 @@ class CreateActorYoutubeTable extends Migration
      */
     public function down()
     {
-        //
+//        Schema::table('actor_youtube', function (Blueprint $table) {
+//            $table->dropPrimary('actor_youtube_actor_id_youtube_id_primary'); // Удалить индекс 'actor_id_youtube_id_primary'
+//
+//            $table->dropForeign('actor_youtube_actor_id_foreign');
+//            $table->dropForeign('actor_youtube_youtube_id_foreign');
+//        });
+        
+        Schema::drop('actor_youtube');
     }
 }

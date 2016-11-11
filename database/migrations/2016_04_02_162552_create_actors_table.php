@@ -15,9 +15,11 @@ class CreateActorsTable extends Migration
         Schema::create('actors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->char('sex', 1);
             $table->string('slug');
             $table->string('birthday');
             $table->string('avatarka');
+            $table->boolean('show_in_index_page')->default(false);
             $table->text('biography');
             $table->timestamps();
         });
@@ -30,6 +32,6 @@ class CreateActorsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('actors');
     }
 }
