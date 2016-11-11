@@ -42,7 +42,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <img src="uploads/404.gif" alt="{{$exception->getMessage() ? $exception->getMessage() : '404 Page Not Found'}}">
+            <img src="/uploads/404.gif" alt="{{$exception->getMessage() ? $exception->getMessage() : '404 Page Not Found'}}">
         </div>
     </div>
 </div>
