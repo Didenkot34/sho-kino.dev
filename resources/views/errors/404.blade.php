@@ -40,8 +40,10 @@
 </head>
 <body>
 <div class="container">
-    <div class="content">
-        <div class="title">{{$exception->getMessage() ? $exception->getMessage() : '404 Page Not Found'}}</div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="uploads/404.gif" alt="">
+        </div>
     </div>
 </div>
 </body>
