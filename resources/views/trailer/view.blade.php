@@ -23,7 +23,7 @@
                'titleDescription' => Lang::get('title.similarFilmsDescription')
                ])
                <div class="center-slider">
-                   @each('trailer.trailersSlider', $activeTrailers, 'trailer')
+                   @each('trailer.trailersSlider', $similarTrailers, 'trailer')
                </div>
            </div>
 

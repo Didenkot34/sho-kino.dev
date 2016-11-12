@@ -14,20 +14,20 @@ class TrailerController extends MyController
     public function view(Trailer $trailer, Comment $comment, $slug)
     {
         $trailerInfo = $this->myExeption($trailer->getTrailerBySlug($slug));
-        
+
         $this->metaTitle = $trailerInfo->title . ' - ' . $this->constMetaDescription;
-        $this->metaDescription = str_limit($trailerInfo->description, '200','...');
+        $this->metaDescription = str_limit($trailerInfo->description, '200', '...');
 
         return view('trailer.view', [
             'trailer' => $trailerInfo,
-            'activeTrailers' => $trailer->getActiveTrailers(),
+            'similarTrailers' => $trailer->getSimilar($trailerInfo),
             'editorsChoice' => $trailer->getEditorsChoice(),
             'comments' => $comment->getCommentsByTrailerId($trailerInfo->id),
             'metaTags' => $this->createMetaTags(),
         ]);
     }
 
-    public function films(Trailer $trailer, Genre $genre, Country $country ,$genreSlug, $yearNumber, $countrySlug)
+    public function films(Trailer $trailer, Genre $genre, Country $country, $genreSlug, $yearNumber, $countrySlug)
     {
         $slug = count(explode('_', $genreSlug)) > 1 ? explode('_', $genreSlug)[1] : explode('_', $genreSlug)[0];
         $year = count(explode('_', $yearNumber)) > 1 ? explode('_', $yearNumber)[1] : explode('_', $yearNumber)[0];
@@ -52,12 +52,12 @@ class TrailerController extends MyController
         return view('trailer.editorsChoicePage', [
             'editorsChoice' => $trailer->getEditorsChoice(),
             'metaTags' => $this->createMetaTags(),
-            ]);
+        ]);
     }
 
     public function premiers(Trailer $trailer)
     {
-        
+
         return view('trailer.premiers', [
             'premiers' => $trailer->getPremiersOfTrailers(),
             'metaTags' => $this->createMetaTags(),

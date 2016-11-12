@@ -87,7 +87,7 @@ class Trailer extends Model
 
     public function getPremiers()
     {
-       return $this->where('world_premiere', '>=' , date('Y-m-d', strtotime('-45 month')))->get();
+        return $this->where('world_premiere', '>=', date('Y-m-d', strtotime('-45 month')))->get();
     }
 
     public function scopeEditorsChoice($query)
@@ -105,5 +105,31 @@ class Trailer extends Model
     {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = str_slug($value);
+    }
+
+    /**
+     * @param $currentTrailer
+     * @return array Similar trailers except current trailer
+     */
+    public function getSimilar($currentTrailer)
+    {
+        $genreIds = [];
+
+        $genres = $currentTrailer->genres()->get();
+        if (empty($genres)) {
+            return [];
+        }
+
+        foreach ($genres as $genre) {
+            $genreIds[] = $genre->id;
+        }
+
+        return $this->select('trailers.*')
+            ->leftJoin('genre_trailer', 'trailers.id', '=', 'genre_trailer.trailer_id')
+            ->whereIn('genre_trailer.genre_id', $genreIds)
+            ->where('trailers.id', '!=' , $currentTrailer->id)
+            ->published()
+            ->groupBy('trailers.id')
+            ->get();
     }
 }
